@@ -5,6 +5,7 @@ import cgi
 import os,sys,json
 import re
 from com_zxl_common.CityUtil import *
+from com_zxl_common.HttpUtil import *
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
