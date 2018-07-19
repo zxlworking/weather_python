@@ -39,3 +39,9 @@ class HttpUtil:
         user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
         headers = {"User-Agent": user_agent}
         return self.get_http_content(url, headers)
+
+    def get_wx_access_token(self):
+        url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx20280a1b4a149ecb&secret=0964fbba9b0a6fad952083adf33df782"
+        user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+        headers = {"User-Agent": user_agent}
+        return self.get_http_content(url, headers)
