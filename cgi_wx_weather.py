@@ -66,25 +66,23 @@ if __name__ == "__main__":
     # wx_access_token = mHttpUtil.get_wx_access_token()
     # wx_access_token_json = json.loads(wx_access_token)
 
-    fo = open("wx_token.txt", "a+")
     form = cgi.FieldStorage()
     keys = form.keys()
     for key in keys:
         if key == "echostr":
             result["echostr"] = form.getvalue(key)
 
-        fo.write(key + "--->" + form.getvalue(key))
-        fo.write("\n")
+    # print "Content-Type:application/json;charset=UTF-8"
+    # print "Accept:application/json"
+    # print "Accept-Charset:UTF-8"
+    # print ""
+    #
+    # print json.dumps(result, encoding="utf-8", ensure_ascii=False)
 
-    fo.write(json.dumps(result, encoding="utf-8", ensure_ascii=False))
-    fo.close()
-
-    print "Content-Type:application/json;charset=UTF-8"
-    print "Accept:application/json"
-    print "Accept-Charset:UTF-8"
+    print "Content-type:text/html;charset=UTF-8"
     print ""
 
-    print json.dumps(result, encoding="utf-8", ensure_ascii=False)
+    print result["echostr"]
 
 
 
