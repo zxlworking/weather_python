@@ -10,7 +10,7 @@ from com_zxl_common.PrintUtil import *
 class DBUtil():
     # host = '118.25.178.69'
     host = 'localhost'
-    urser_name = "zxl"
+    urser_name = "root"
     pass_word = "root"
     mPrintUtil = PrintUtil()
 
@@ -79,7 +79,7 @@ class DBUtil():
         return result_element_list
 
     def query_to_city_total_count(self):
-        cursor.execute(CityDB.QUERY_CITY_BY_CITY_NAME_SQL)
+        cursor.execute(CityDB.QUERY_CITY_TOTAL_COUNT_SQL)
         for(total_count, ) in cursor:
             return total_count
 

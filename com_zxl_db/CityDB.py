@@ -21,6 +21,6 @@ class CityDB:
 
     QUERY_CITY_BY_CITY_NAME_SQL = ("SELECT _id, city_code, city_name, city_py, province "
                            " FROM " + CITY_TABLE +
-                           " WHERE city_name = '%s'")
+                           " WHERE locate(city_name,'%s') = 1")
 
     QUERY_CITY_TOTAL_COUNT_SQL = ("SELECT COUNT(*)total_count FROM " + CITY_TABLE)
