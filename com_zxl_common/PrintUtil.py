@@ -11,4 +11,11 @@ class PrintUtil:
 	def show_input_type_error(self):
 		print "输入格式错误"
 
+	def print_to_file(self,msg):
+		fo = open("wx.txt", "a+")
+		fo.write(msg)
+		fo.write("\n")
+		fo.close()
+
+
 
