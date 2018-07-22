@@ -5,6 +5,7 @@ import cgi
 import re
 import os, sys, json
 from com_zxl_common.CityUtil import *
+from com_zxl_common.ParserUtil import *
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -60,6 +61,7 @@ if json_str["request"]["type"] == "IntentRequest":
     # http://www.weather.com.cn/data/cityinfo/101010100.html
     mHttpUtil = HttpUtil()
     mCityUtil = CityUtil()
+    mParserUtil = ParserUtil()
     mCityUtil.init_city_list()
     mCityResult = mCityUtil.query_city_by_city_name(city_name)
 
@@ -67,10 +69,8 @@ if json_str["request"]["type"] == "IntentRequest":
         context["city_code"] = mCityResult[0]["city_code"]
 
         weather_py_response = mHttpUtil.get_weather_content_by_city_py(mCityResult[0]["city_py"])
-        pattern = re.compile(
-            u"""<div class="left">.*?<span><b>(.*?)</b>(\d+).*?~.*?(\d+)℃</span>.*?</dd>.*?<dd class="shidu"><b>(.*?)%</b><b>(.*?)</b><b>(.*?)</b></dd>.*?<dd class="kongqi" ><h5.*?>(.*?)</h5><h6>PM.*?</div>""",
-            re.S)
-        parser_resutl = re.findall(pattern, weather_py_response)
+
+        parser_resutl = mParserUtil.parse_city_weather(weather_py_response)
 
         # print parser_resutl[0][0].decode("utf-8")
         # print parser_resutl[0][1].decode("utf-8")

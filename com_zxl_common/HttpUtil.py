@@ -18,9 +18,11 @@ class HttpUtil:
             return response.read().decode("utf-8")
         except urllib2.URLError, e:
             if hasattr(e, "code"):
-                print "e.code:" + e.code
+                print "e.code:"
+                print e.code
             if hasattr(e, "reason"):
-                print "e.reason:" + e.reason
+                print "e.reason:"
+                print e.reason
 
     def get_city_list(self):
         url = "http://mobile.weather.com.cn/js/citylist.xml"

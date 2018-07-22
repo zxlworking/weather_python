@@ -8,6 +8,7 @@ import time
 from com_zxl_common.CityUtil import *
 from com_zxl_common.HttpUtil import *
 from com_zxl_common.PrintUtil import *
+from com_zxl_common.ParserUtil import *
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -18,12 +19,12 @@ class ParserWxHandler(xml.sax.ContentHandler):
 
     def startElement(self, tag, attributes):
         self.tag = tag
-        mPrintUtil.print_to_file("characters-----------start")
-        mPrintUtil.print_to_file(self.tag)
+        # mPrintUtil.print_to_file("characters-----------start")
+        # mPrintUtil.print_to_file(self.tag)
 
     def characters(self, content):
 
-        mPrintUtil.print_to_file(content)
+        # mPrintUtil.print_to_file(content)
 
         if self.tag == "ToUserName":
             self.wx_msg["ToUserName"] = content
@@ -40,10 +41,11 @@ class ParserWxHandler(xml.sax.ContentHandler):
 
     def endElement(self, tag):
         self.tag = ""
-        mPrintUtil.print_to_file("characters-----------end")
+        # mPrintUtil.print_to_file("characters-----------end")
 
 result = {}
 mPrintUtil = PrintUtil()
+mParserUtil = ParserUtil()
 
 if __name__ == "__main__":
 
@@ -77,21 +79,48 @@ if __name__ == "__main__":
     mPrintUtil.print_to_file(mParserWxHandler.wx_msg["Content"])
     mPrintUtil.print_to_file(mParserWxHandler.wx_msg["MsgId"])
 
-    # wx_response_msg = "<xml>" \
-    #                   "<ToUserName><![CDATA[" + mParserWxHandler.wx_msg["FromUserName"] +"]]></ToUserName>" \
-    #                   "<FromUserName><![CDATA[" + mParserWxHandler.wx_msg["ToUserName"] + "]]></FromUserName>" \
-    #                   "<CreateTime>" + str(int(time.time())) + "</CreateTime>" \
-    #                   "<MsgType><![CDATA[text]]></MsgType>" \
-    #                   "<Content><![CDATA[你好]]></Content>" \
-    #                   "</xml>"
-    wx_response_msg = """<xml><ToUserName><![CDATA[olFtC1i--Xg5-noFz0tSyeSRppc0]]></ToUserName>
-<FromUserName><![CDATA[gh_06fb203622b2]]></FromUserName>
-<CreateTime>1532079357</CreateTime>
-<MsgType><![CDATA[text]]></MsgType>
-<Content><![CDATA[hkl]]></Content>
-<MsgId>6580230733668495373</MsgId>
-</xml>"""
-    #mPrintUtil.print_to_file(wx_response_msg)
+    wx_request_msg = mParserWxHandler.wx_msg["Content"]
+    wx_parse_result = mParserUtil.parse_wx_weather_request(wx_request_msg.decode("utf-8"))
+    wx_response_txt = "没有该城市的天气"
+    if len(wx_parse_result) > 0:
+        mPrintUtil.print_to_file(str(len(wx_parse_result[0])))
+        city_name = wx_parse_result[0].decode("utf-8")
+        if city_name is None:
+            wx_response_txt = "没有找到该城市"
+        else:
+            mHttpUtil = HttpUtil()
+            mCityUtil = CityUtil()
+            mCityUtil.init_city_list()
+            mCityBeanResult = mCityUtil.query_city_by_city_name(city_name)
+
+            if len(mCityBeanResult) > 0:
+                city_weather_response = mHttpUtil.get_weather_content_by_city_py(mCityBeanResult[0]["city_py"])
+                parser_resutl = mParserUtil.parse_city_weather(city_weather_response)
+
+                if len(parser_resutl) > 0:
+                    wx_response_txt = mCityBeanResult[0]["city_name"] + \
+                                      "今天" + parser_resutl[0][0].decode("utf-8") + "," + \
+                                      "最低温度" + parser_resutl[0][1].decode("utf-8") + "," + \
+                                      "最高温度" + parser_resutl[0][2].decode("utf-8") + "," + \
+                                      parser_resutl[0][3].decode("utf-8") + "," + \
+                                      parser_resutl[0][4].decode("utf-8") + "," + \
+                                      parser_resutl[0][5].decode("utf-8") + "," + \
+                                      parser_resutl[0][6].decode("utf-8")
+                else:
+                    wx_response_txt = "没有该城市的天气"
+            else:
+                wx_response_txt = "没有找到该城市"
+    else:
+        wx_response_txt = "格式错误"
+
+    wx_response_msg = "<xml>" \
+                      "<ToUserName><![CDATA[" + mParserWxHandler.wx_msg["FromUserName"] +"]]></ToUserName>" \
+                      "<FromUserName><![CDATA[" + mParserWxHandler.wx_msg["ToUserName"] + "]]></FromUserName>" \
+                      "<CreateTime>" + str(int(time.time())) + "</CreateTime>" \
+                      "<MsgType><![CDATA[text]]></MsgType>" \
+                      "<Content><![CDATA[" + wx_response_txt + "]]></Content>" \
+                      "</xml>"
+    mPrintUtil.print_to_file(wx_response_msg)
 
     print "Content-type:text/html;charset=UTF-8"
     print ""

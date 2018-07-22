@@ -69,6 +69,7 @@ class DBUtil():
         cnx.commit()
 
     def query_to_city_by_city_name(self, cityName):
+        #self.mPrintUtil.print_to_file(CityDB.QUERY_CITY_BY_CITY_NAME_SQL % cityName)
         cursor.execute(CityDB.QUERY_CITY_BY_CITY_NAME_SQL % cityName)
         result_element_list = []
         for (_id, city_code, city_name, city_py, province) in cursor:
