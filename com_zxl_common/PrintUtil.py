@@ -13,8 +13,8 @@ class PrintUtil:
 
 	def print_to_file(self,msg):
 		fo = open("wx.txt", "a+")
-		fo.write(msg)
-		fo.write("\n")
+		#fo.write(msg)
+		#fo.write("\n")
 		fo.close()
 
 

@@ -19,12 +19,22 @@ class ParserUtil:
 		# mPrintUtil.print_to_file("parse_wx_weather_request::wx_request = ")
 		# mPrintUtil.print_to_file(wx_request)
 		pattern = re.compile(
-			u"""([\u4E00-\u9FA5]+)天气""",
+			u""".*?([\u4E00-\u9FA5]+)天气.*?""",
 			re.S)
 		parser_resutl = re.findall(pattern, wx_request)
 		# mPrintUtil.print_to_file(str(len(parser_resutl)))
 		return parser_resutl
 
+	def parse_wx_qsbk_request(self, wx_request):
+		# mPrintUtil = Print_to_file(wx_request)Util()
+		# 		# mPrintUtil.print_to_file("parse_wx_weather_request::wx_request = ")
+		# 		# mPrintUtil.print
+		pattern = re.compile(
+			u""".*?(笑话).*?""",
+			re.S)
+		parser_resutl = re.findall(pattern, wx_request)
+		# mPrintUtil.print_to_file(str(len(parser_resutl)))
+		return parser_resutl
 
 
 

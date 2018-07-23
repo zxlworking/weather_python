@@ -46,6 +46,8 @@ class ParserWxHandler(xml.sax.ContentHandler):
 result = {}
 mPrintUtil = PrintUtil()
 mParserUtil = ParserUtil()
+mHttpUtil = HttpUtil()
+mCityUtil = CityUtil()
 
 if __name__ == "__main__":
 
@@ -79,17 +81,33 @@ if __name__ == "__main__":
     mPrintUtil.print_to_file(mParserWxHandler.wx_msg["Content"])
     mPrintUtil.print_to_file(mParserWxHandler.wx_msg["MsgId"])
 
-    wx_request_msg = mParserWxHandler.wx_msg["Content"]
-    wx_parse_result = mParserUtil.parse_wx_weather_request(wx_request_msg.decode("utf-8"))
-    wx_response_txt = "没有该城市的天气"
-    if len(wx_parse_result) > 0:
-        mPrintUtil.print_to_file(str(len(wx_parse_result[0])))
-        city_name = wx_parse_result[0].decode("utf-8")
+    wx_request = mParserWxHandler.wx_msg["Content"]
+
+    wx_response_txt = "1.查询城市天气\n" \
+                      "输入\"南京天气\"或者\"南京的天气\"\n" \
+                      "\n2.讲个笑话\n" \
+                      "输入\"讲个笑话\"\n" \
+                      "\n"
+
+    wx_parse_weather_result = mParserUtil.parse_wx_weather_request(wx_request.decode("utf-8"))
+    wx_parse_qsbk_result = mParserUtil.parse_wx_qsbk_request(wx_request.decode("utf-8"))
+
+    mPrintUtil.print_to_file("wx_parse_weather_result len = %s" % str(len(wx_parse_weather_result)))
+    mPrintUtil.print_to_file("wx_parse_qsbk_result len = %s" % str(len(wx_parse_qsbk_result)))
+    if len(wx_parse_weather_result) > 0:
+        mPrintUtil.print_to_file("match wx_parse_weather_result:")
+        mPrintUtil.print_to_file(str(len(wx_parse_weather_result[0])))
+        mPrintUtil.print_to_file(wx_parse_weather_result[0])
+        # if len(wx_parse_weather_result[0]) > 0:
+        #     for s in wx_parse_weather_result[0]:
+        #         mPrintUtil.print_to_file(s)
+        #     city_name = wx_parse_weather_result[0][0].decode("utf-8")
+        # else:
+        #     city_name = wx_parse_weather_result[0].decode("utf-8")
+        city_name = wx_parse_weather_result[0].decode("utf-8")
         if city_name is None:
             wx_response_txt = "没有找到该城市"
         else:
-            mHttpUtil = HttpUtil()
-            mCityUtil = CityUtil()
             mCityUtil.init_city_list()
             mCityBeanResult = mCityUtil.query_city_by_city_name(city_name)
 
@@ -110,8 +128,22 @@ if __name__ == "__main__":
                     wx_response_txt = "没有该城市的天气"
             else:
                 wx_response_txt = "没有找到该城市"
-    else:
-        wx_response_txt = "格式错误"
+    elif len(wx_parse_qsbk_result) > 0:
+        mPrintUtil.print_to_file("match wx_parse_qsbk_result:")
+        mPrintUtil.print_to_file(str(len(wx_parse_qsbk_result[0])))
+        mPrintUtil.print_to_file(wx_parse_qsbk_result[0])
+        mPrintUtil.print_to_file("match wx_parse_qsbk_result s:")
+        for s in wx_parse_qsbk_result[0]:
+            mPrintUtil.print_to_file(s)
+        qsbk_response_json_str = mHttpUtil.get_qsbk()
+        mPrintUtil.print_to_file(qsbk_response_json_str)
+        qsbk_response_json = json.loads(qsbk_response_json_str)
+
+        mPrintUtil.print_to_file("qsbk_response_json::content===========================>")
+        mPrintUtil.print_to_file(str(len(qsbk_response_json["result"])))
+        mPrintUtil.print_to_file(qsbk_response_json["result"][0]["content"])
+        wx_response_txt = qsbk_response_json["result"][0]["content"]
+
 
     wx_response_msg = "<xml>" \
                       "<ToUserName><![CDATA[" + mParserWxHandler.wx_msg["FromUserName"] +"]]></ToUserName>" \

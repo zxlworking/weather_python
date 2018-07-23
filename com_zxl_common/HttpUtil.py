@@ -54,3 +54,9 @@ class HttpUtil:
         user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
         headers = {"User-Agent": user_agent}
         return self.get_http_content(url, headers)
+
+    def get_qsbk(self):
+        url = "http://118.25.178.69/cgi_server/cgi_qsbk/cgi_qsbk.py?page=1&count=1"
+        user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+        headers = {"User-Agent": user_agent}
+        return self.get_http_content(url, headers)
