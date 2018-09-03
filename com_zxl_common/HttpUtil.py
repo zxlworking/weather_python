@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # coding=utf-8
 import urllib
+import time
 import urllib2
 import sys
+from selenium import webdriver
 
 
 # reload(sys)
@@ -60,3 +62,45 @@ class HttpUtil:
         user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
         headers = {"User-Agent": user_agent}
         return self.get_http_content(url, headers)
+
+    def get_today_weather_from_zh_tian_qi(self, city_code):
+        chromedriver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+
+        # 创建chrome参数对象
+        opt = webdriver.ChromeOptions()
+
+        # 把chrome设置成无界面模式，不论windows还是linux都可以，自动适配对应参数
+        opt.set_headless()
+        prefs = {"profile.managed_default_content_settings.images": 2}
+        opt.add_experimental_option("prefs", prefs)
+
+        # 创建chrome无界面对象
+        driver = webdriver.Chrome(executable_path=chromedriver, options=opt)
+
+        driver.get('http://www.weather.com.cn/weather1d/%s.shtml#search' % city_code)
+
+        # # < big class ="jpg80 d04" > < / big >
+        # # link = driver.find_element_by_class_name("jpg80")
+        # link = driver.find_element_by_css_selector("[class='jpg80 d04']")
+        # print link.value_of_css_property("background-image")
+        # print link.value_of_css_property("width")
+        # print link.value_of_css_property("height")
+        # print link.value_of_css_property("background-position-x")
+        # print link.value_of_css_property("background-position-y")
+        # print "\n"
+        # link = driver.find_element_by_css_selector("[class='jpg80 n01']")
+        # print link.value_of_css_property("background-image")
+        # print link.value_of_css_property("width")
+        # print link.value_of_css_property("height")
+        # print link.value_of_css_property("background-position-x")
+        # print link.value_of_css_property("background-position-y")
+        # print "\n"
+        # link = driver.find_element_by_css_selector("[class='con today clearfix']")
+        # print link.text
+        # print "\n"
+
+        # 打印内容
+        # return driver.page_source
+
+        return driver
+
