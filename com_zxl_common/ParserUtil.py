@@ -46,26 +46,110 @@ class ParserUtil:
         pattern = re.compile(u""".*?<ul class="clearfix">(.*?)<input type=".*?" id=".*?" value=".*?" />.*?""", re.S)
         toaday_detail_weather_page_content = re.findall(pattern, today_weather_page_content)
 
-        pattern = re.compile(u""".*?<li>(.*?)</li>.*?<li>(.*?)</li>.*?""", re.S)
-        toaday_detail_weather_page_content = re.findall(pattern, toaday_detail_weather_page_content[0])
-
-
-        pattern = re.compile(u""".*?<p class="sun sunUp">.*?""", re.S)
-        is_daytime = re.findall(pattern, toaday_detail_weather_page_content[0][0])
-        if len(is_daytime) > 0:
-
-
-        print "get_zh_tian_qi_today_detail_weather---end"
+        print "get_zh_tian_qi_today_detail_weather---end\n"
         return toaday_detail_weather_page_content
 
-    def parse_zh_tian_qi_today_weather(self, today_weather_page_content):
-        print "parse_zh_tian_qi_today_weather---start"
+    def parse_zh_tian_qi_today_weather(self, today_weather_page_content, result):
+        print "parse_zh_tian_qi_today_weather---start\n"
+        # print today_weather_page_content.decode("utf-8")
         # 湿度==风向==风级==温度==空气质量
         # (^(\-|\+)?\d+(\.\d+)?)
         pattern = re.compile(u""".*?<div class="sk">.*?<p class="time"><span>.*?</span></p><div class="zs h"><i></i><span>.*?</span><em>(\d+)%</em></div><div class="zs w"><i></i><span>(.*?)</span><em>(.*?)级</em></div><div class="tem"><span>(-?\d+\.?\d*)</span><em>℃</em></div><p></p><div class="therm"><p><i class="t"></i><i class="c" style="height:.*?"></i></p></div><div class="zs pol"><i></i><span><a.*?>(.*?)</a></span></div></div>.*?<ul class="clearfix">.*?""",re.S)
         today_weather_page_parse_result = re.findall(pattern, today_weather_page_content)
-        print "parse_zh_tian_qi_today_weather---end"
-        return today_weather_page_parse_result
 
+        if len(today_weather_page_parse_result) > 0:
+            result["code"] = 0
+            result["desc"] = "success"
+            result["today_weather"] = {}
+            result["today_weather"]["humidity"] = today_weather_page_parse_result[0][0].decode("utf-8")
+            result["today_weather"]["wind_direction"] = today_weather_page_parse_result[0][1].decode("utf-8")
+            result["today_weather"]["wind_value"] = today_weather_page_parse_result[0][2].decode("utf-8")
+            result["today_weather"]["temperature"] = today_weather_page_parse_result[0][3].decode("utf-8")
+            result["today_weather"]["air_quality"] = today_weather_page_parse_result[0][4].decode("utf-8")
+        else:
+            result["code"] = -4
 
+        print "parse_zh_tian_qi_today_weather---end\n"
+        # return today_weather_page_parse_result
 
+    def parse_zh_tian_qi_today_detail_weather(self, toaday_detail_weather_page_content):
+        print "parse_zh_tian_qi_today_detail_weather---start\n"
+        # print toaday_detail_weather_page_content.decode("utf-8")
+        # print "\n"
+
+        pattern = re.compile(u"""(.*?)<div class="slid">(.*?)</ul>.*?</div>.*?""", re.S)
+        toaday_detail_weather_list_content = re.findall(pattern, toaday_detail_weather_page_content)
+
+        # print "toaday_detail_weather_list_content===>length\n"
+        # print len(toaday_detail_weather_list_content)
+        # print "\n"
+        # print toaday_detail_weather_list_content
+
+        toaday_detail_weather_list_result = []
+        i = 0
+        for toaday_detail_weather_element_content in toaday_detail_weather_list_content[0]:
+            pattern = re.compile(u""".*?(<p class="sun sunUp">).*?""", re.S)
+            is_daytime = re.findall(pattern, toaday_detail_weather_element_content)
+
+            # print toaday_detail_weather_element_content.decode("utf-8")
+            # print is_daytime
+            # print "\n"
+
+            if len(is_daytime) > 0:
+                toaday_detail_weather_element = {}
+                #标题==天气图标样式==天气==天气描述==气温==风向==风级==日出时间
+                pattern = re.compile(u""".*?<li>.*?<h1>(.*?)</h1>.*?<big class="(.*?)"></big>.*?<p class="wea" title=".*?">(.*?)</p>.*?<div class="sky">.*?<span class=".*?">(.*?)</span>.*?<i class="icon"></i>.*?<div class="skypop">.*?</div>.*?</div>.*?<p class="tem">.*?<span>(.*?)</span><em>°C</em>.*?</p>.*?<p class="win">.*?<i class=".*?"></i>.*?<span class="" title="(.*?)">(.*?)</span>.*?</p>.*?<p class="sun sunUp"><i></i>.*?<span>(.*?)</span>.*?</p>.*?""", re.S)
+                toaday_detail_weather_element_result = re.findall(pattern, toaday_detail_weather_element_content)
+
+                # print "toaday_detail_weather_element_result\n"
+                # print toaday_detail_weather_element_result
+
+                if len(toaday_detail_weather_element_result) > 0:
+                    toaday_detail_weather_element["title"] = toaday_detail_weather_element_result[0][0].decode("utf-8")
+                    toaday_detail_weather_element["weather_icon_css"] = toaday_detail_weather_element_result[0][1].decode("utf-8")
+                    toaday_detail_weather_element["weather"] = toaday_detail_weather_element_result[0][2].decode("utf-8")
+                    toaday_detail_weather_element["weather_desc"] = toaday_detail_weather_element_result[0][3].decode("utf-8")
+                    toaday_detail_weather_element["temperature"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
+                    toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
+                    toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
+                    toaday_detail_weather_element["sun_up"] = toaday_detail_weather_element_result[0][7].decode("utf-8")
+                    toaday_detail_weather_list_result.append(toaday_detail_weather_element)
+            else:
+                toaday_detail_weather_element = {}
+                # 标题==天气图标样式==天气==气温==风向==风级==日落时间
+                pattern = re.compile(
+                    u""".*?<li>.*?<h1>(.*?)</h1>.*?<big class="(.*?)"></big>.*?<p class="wea" title=".*?">(.*?)</p>.*?<div class="sky">.*?</div>.*?<p class="tem">.*?<span>(.*?)</span><em>°C</em>.*?</p>.*?<p class="win">.*?<i class=".*?"></i>.*?<span class="" title="(.*?)">(.*?)</span>.*?</p>.*?<p class="sun sunDown"><i></i>.*?<span>(.*?)</span>.*?</p>.*?""",
+                    re.S)
+                toaday_detail_weather_element_result = re.findall(pattern, toaday_detail_weather_element_content)
+
+                # print "toaday_detail_weather_element_result\n"
+                # print toaday_detail_weather_element_result
+
+                if len(toaday_detail_weather_element_result) > 0:
+                    toaday_detail_weather_element["title"] = toaday_detail_weather_element_result[0][0].decode("utf-8")
+                    toaday_detail_weather_element["weather_icon_css"] = toaday_detail_weather_element_result[0][1].decode("utf-8")
+                    toaday_detail_weather_element["weather"] = toaday_detail_weather_element_result[0][2].decode("utf-8")
+                    toaday_detail_weather_element["temperature"] = toaday_detail_weather_element_result[0][3].decode("utf-8")
+                    toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
+                    toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
+                    toaday_detail_weather_element["sun_up"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
+                    toaday_detail_weather_list_result.append(toaday_detail_weather_element)
+
+        print "parse_zh_tian_qi_today_detail_weather---end\n"
+        return toaday_detail_weather_list_result
+
+    def get_single_bracket_str(self, content):
+        pattern = re.compile(u""".*?[(]"(.*?)"[)].*?""", re.S)
+        result = re.findall(pattern, content)
+        if len(result) > 0:
+            return result[0]
+        else:
+            return ''
+
+    def get_px_value(self, content):
+        pattern = re.compile(u"""(.*?)px.*?""", re.S)
+        result = re.findall(pattern, content)
+        if len(result) > 0:
+            return result[0]
+        else:
+            return 0

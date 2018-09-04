@@ -104,3 +104,43 @@ class HttpUtil:
 
         return driver
 
+    def get_today_weather_temperature_icon_css(self,mParserUtil, driver, result):
+        result["today_weather_temperature_icon_css"] = {}
+
+        therm_css_selector = driver.find_element_by_css_selector("[class='therm']")
+        result["today_weather_temperature_icon_css"]["img"] = mParserUtil.get_single_bracket_str(
+            therm_css_selector.value_of_css_property("background-image"))
+        t_css_selector = driver.find_element_by_css_selector('.today .t .sk .therm p .t')
+        result["today_weather_temperature_icon_css"]["background_position_x1"] = mParserUtil.get_px_value(
+            t_css_selector.value_of_css_property("background-position-x"))
+        result["today_weather_temperature_icon_css"]["background_position_y1"] = mParserUtil.get_px_value(
+            t_css_selector.value_of_css_property("background-position-y"))
+        result["today_weather_temperature_icon_css"]["width1"] = mParserUtil.get_px_value(
+            t_css_selector.value_of_css_property("width"))
+        result["today_weather_temperature_icon_css"]["height1"] = mParserUtil.get_px_value(
+            t_css_selector.value_of_css_property("height"))
+        c_css_selector = driver.find_element_by_css_selector('.today .t .sk .therm p .c')
+        result["today_weather_temperature_icon_css"]["background_position_x2"] = mParserUtil.get_px_value(
+            c_css_selector.value_of_css_property("background-position-x"))
+        result["today_weather_temperature_icon_css"]["background_position_y2"] = mParserUtil.get_px_value(
+            c_css_selector.value_of_css_property("background-position-y"))
+        result["today_weather_temperature_icon_css"]["width2"] = mParserUtil.get_px_value(
+            c_css_selector.value_of_css_property("width"))
+        result["today_weather_temperature_icon_css"]["height2"] = mParserUtil.get_px_value(
+            c_css_selector.value_of_css_property("height"))
+
+    def get_toaday_detail_weather_icon_css(self,mParserUtil, driver, toaday_detail_weather_element_result):
+        big_css_selector = driver.find_element_by_css_selector(
+            "[class='%s']" % toaday_detail_weather_element_result["weather_icon_css"])
+        toaday_detail_weather_element_result["weather_icon_css"] = {}
+        toaday_detail_weather_element_result["weather_icon_css"]["img"] = mParserUtil.get_single_bracket_str(
+            big_css_selector.value_of_css_property("background-image"))
+        toaday_detail_weather_element_result["weather_icon_css"]["background_position_x"] = mParserUtil.get_px_value(
+            big_css_selector.value_of_css_property("background-position-x"))
+        toaday_detail_weather_element_result["weather_icon_css"]["background_position_y"] = mParserUtil.get_px_value(
+            big_css_selector.value_of_css_property("background-position-y"))
+        toaday_detail_weather_element_result["weather_icon_css"]["width"] = mParserUtil.get_px_value(
+            big_css_selector.value_of_css_property("width"))
+        toaday_detail_weather_element_result["weather_icon_css"]["height"] = mParserUtil.get_px_value(
+            big_css_selector.value_of_css_property("height"))
+
