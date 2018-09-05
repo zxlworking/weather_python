@@ -53,9 +53,9 @@ class CityUtil:
         xml.sax.parseString(mHttpCityList.encode("utf-8"), mParserCityHandler)
 
         for mCityBean in mParserCityHandler.mCityBeanList:
-            print "zxl--->" + mCityBean.mCityName + "--->" + mCityBean.mCityPinYing
+            # print "zxl--->" + mCityBean.mCityName + "--->" + mCityBean.mCityPinYing
             self.mDBUtil.insert_to_city(mCityBean)
-        print "zxl--->insert city finish"
+        # print "zxl--->insert city finish"
 
     def query_city_by_city_name(self, city_name):
         return self.mDBUtil.query_to_city_by_city_name(city_name)

@@ -18,11 +18,14 @@ result = {}
 
 if __name__ == "__main__":
 
-    # form = cgi.FieldStorage()
-    # city_name = form.getvalue("city").decode("utf-8")
+    form = cgi.FieldStorage()
+    city_name = form.getvalue("city").decode("utf-8")
 
-    city_name = '南京'
+
+    # city_name = '南京'
     # city_name = '哈尔滨'
+
+    print "city_name============%s" % city_name
 
     # fo = open("foo.txt", "a+")
     # fo.write(city_name)
@@ -46,7 +49,7 @@ if __name__ == "__main__":
         mCityUtil.init_city_list()
         mCityResult = mCityUtil.query_city_by_city_name(city_name)
 
-        print mCityResult
+        # print mCityResult
 
         if len(mCityResult) > 0:
 
@@ -129,6 +132,8 @@ if __name__ == "__main__":
             result["desc"] = "没有该城市数据"
 
     print "Content-type:text/html;charset=UTF-8"
+    print "Accept:application/json"
+    print "Accept-Charset:UTF-8"
     print ""
 
     print json.dumps(result, encoding="utf-8", ensure_ascii=False)

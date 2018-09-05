@@ -41,16 +41,16 @@ class ParserUtil:
         return today_weather_page_content
 
     def get_zh_tian_qi_today_detail_weather(self, today_weather_page_content):
-        print "get_zh_tian_qi_today_detail_weather---start\n"
+        print "get_zh_tian_qi_today_detail_weather---start"
         #big class==温度==风向==风级==日出时间
         pattern = re.compile(u""".*?<ul class="clearfix">(.*?)<input type=".*?" id=".*?" value=".*?" />.*?""", re.S)
         toaday_detail_weather_page_content = re.findall(pattern, today_weather_page_content)
 
-        print "get_zh_tian_qi_today_detail_weather---end\n"
+        print "get_zh_tian_qi_today_detail_weather---end"
         return toaday_detail_weather_page_content
 
     def parse_zh_tian_qi_today_weather(self, today_weather_page_content, result):
-        print "parse_zh_tian_qi_today_weather---start\n"
+        print "parse_zh_tian_qi_today_weather---start"
         # print today_weather_page_content.decode("utf-8")
         # 湿度==风向==风级==温度==空气质量
         # (^(\-|\+)?\d+(\.\d+)?)
@@ -69,11 +69,11 @@ class ParserUtil:
         else:
             result["code"] = -4
 
-        print "parse_zh_tian_qi_today_weather---end\n"
+        print "parse_zh_tian_qi_today_weather---end"
         # return today_weather_page_parse_result
 
     def parse_zh_tian_qi_today_detail_weather(self, toaday_detail_weather_page_content):
-        print "parse_zh_tian_qi_today_detail_weather---start\n"
+        print "parse_zh_tian_qi_today_detail_weather---start"
         # print toaday_detail_weather_page_content.decode("utf-8")
         # print "\n"
 
@@ -135,7 +135,7 @@ class ParserUtil:
                     toaday_detail_weather_element["sun_up"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
                     toaday_detail_weather_list_result.append(toaday_detail_weather_element)
 
-        print "parse_zh_tian_qi_today_detail_weather---end\n"
+        print "parse_zh_tian_qi_today_detail_weather---end"
         return toaday_detail_weather_list_result
 
     def get_single_bracket_str(self, content):
