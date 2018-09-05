@@ -42,7 +42,7 @@ class ParserUtil:
 
     def get_zh_tian_qi_today_detail_weather(self, today_weather_page_content):
         print "get_zh_tian_qi_today_detail_weather---start"
-        #big class==温度==风向==风级==日出时间
+
         pattern = re.compile(u""".*?<ul class="clearfix">(.*?)<input type=".*?" id=".*?" value=".*?" />.*?""", re.S)
         toaday_detail_weather_page_content = re.findall(pattern, today_weather_page_content)
 
@@ -52,20 +52,21 @@ class ParserUtil:
     def parse_zh_tian_qi_today_weather(self, today_weather_page_content, result):
         print "parse_zh_tian_qi_today_weather---start"
         # print today_weather_page_content.decode("utf-8")
-        # 湿度==风向==风级==温度==空气质量
+        # 实况==湿度==风向==风级==温度==空气质量
         # (^(\-|\+)?\d+(\.\d+)?)
-        pattern = re.compile(u""".*?<div class="sk">.*?<p class="time"><span>.*?</span></p><div class="zs h"><i></i><span>.*?</span><em>(.*?)</em></div><div class="zs w"><i></i><span>(.*?)</span><em>(.*?)级</em></div><div class="tem"><span>(-?\d+\.?\d*)</span><em>℃</em></div><p></p><div class="therm"><p><i class="t"></i><i class="c" style="height:.*?"></i></p></div><div class="zs pol"><i></i><span><a.*?>(.*?)</a></span></div></div>.*?<ul class="clearfix">.*?""",re.S)
+        pattern = re.compile(u""".*?<div class="sk">.*?<p class="time"><span>(.*?)</span></p><div class="zs h"><i></i><span>.*?</span><em>(.*?)</em></div><div class="zs w"><i></i><span>(.*?)</span><em>(.*?)级</em></div><div class="tem"><span>(-?\d+\.?\d*)</span><em>℃</em></div><p></p><div class="therm"><p><i class="t"></i><i class="c" style="height:.*?"></i></p></div><div class="zs pol"><i></i><span><a.*?>(.*?)</a></span></div></div>.*?<ul class="clearfix">.*?""",re.S)
         today_weather_page_parse_result = re.findall(pattern, today_weather_page_content)
 
         if len(today_weather_page_parse_result) > 0:
             result["code"] = 0
             result["desc"] = "success"
             result["today_weather"] = {}
-            result["today_weather"]["humidity"] = today_weather_page_parse_result[0][0].decode("utf-8")
-            result["today_weather"]["wind_direction"] = today_weather_page_parse_result[0][1].decode("utf-8")
-            result["today_weather"]["wind_value"] = today_weather_page_parse_result[0][2].decode("utf-8")
-            result["today_weather"]["temperature"] = today_weather_page_parse_result[0][3].decode("utf-8")
-            result["today_weather"]["air_quality"] = today_weather_page_parse_result[0][4].decode("utf-8")
+            result["today_weather"]["now_time"] = today_weather_page_parse_result[0][0].decode("utf-8")
+            result["today_weather"]["humidity"] = today_weather_page_parse_result[0][1].decode("utf-8")
+            result["today_weather"]["wind_direction"] = today_weather_page_parse_result[0][2].decode("utf-8")
+            result["today_weather"]["wind_value"] = today_weather_page_parse_result[0][3].decode("utf-8")
+            result["today_weather"]["temperature"] = today_weather_page_parse_result[0][4].decode("utf-8")
+            result["today_weather"]["air_quality"] = today_weather_page_parse_result[0][5].decode("utf-8")
         else:
             result["code"] = -4
 
@@ -112,7 +113,7 @@ class ParserUtil:
                     toaday_detail_weather_element["temperature"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
                     toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
                     toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
-                    toaday_detail_weather_element["sun_up"] = toaday_detail_weather_element_result[0][7].decode("utf-8")
+                    toaday_detail_weather_element["sun_time"] = toaday_detail_weather_element_result[0][7].decode("utf-8")
                     toaday_detail_weather_list_result.append(toaday_detail_weather_element)
             else:
                 toaday_detail_weather_element = {}
