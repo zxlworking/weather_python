@@ -78,7 +78,8 @@ class ParserUtil:
         # print toaday_detail_weather_page_content.decode("utf-8")
         # print "\n"
 
-        pattern = re.compile(u"""(.*?)<div class="slid">(.*?)</ul>.*?</div>.*?""", re.S)
+        pattern = re.compile(u"""(.*?)<div class="slid">(.*?)</ul>
+</div>.*?""", re.S)
         toaday_detail_weather_list_content = re.findall(pattern, toaday_detail_weather_page_content)
 
         # print "toaday_detail_weather_list_content===>length\n"
