@@ -54,7 +54,7 @@ class ParserUtil:
         # print today_weather_page_content.decode("utf-8")
         # 湿度==风向==风级==温度==空气质量
         # (^(\-|\+)?\d+(\.\d+)?)
-        pattern = re.compile(u""".*?<div class="sk">.*?<p class="time"><span>.*?</span></p><div class="zs h"><i></i><span>.*?</span><em>(\d+)%</em></div><div class="zs w"><i></i><span>(.*?)</span><em>(.*?)级</em></div><div class="tem"><span>(-?\d+\.?\d*)</span><em>℃</em></div><p></p><div class="therm"><p><i class="t"></i><i class="c" style="height:.*?"></i></p></div><div class="zs pol"><i></i><span><a.*?>(.*?)</a></span></div></div>.*?<ul class="clearfix">.*?""",re.S)
+        pattern = re.compile(u""".*?<div class="sk">.*?<p class="time"><span>.*?</span></p><div class="zs h"><i></i><span>.*?</span><em>(.*?)</em></div><div class="zs w"><i></i><span>(.*?)</span><em>(.*?)级</em></div><div class="tem"><span>(-?\d+\.?\d*)</span><em>℃</em></div><p></p><div class="therm"><p><i class="t"></i><i class="c" style="height:.*?"></i></p></div><div class="zs pol"><i></i><span><a.*?>(.*?)</a></span></div></div>.*?<ul class="clearfix">.*?""",re.S)
         today_weather_page_parse_result = re.findall(pattern, today_weather_page_content)
 
         if len(today_weather_page_parse_result) > 0:
