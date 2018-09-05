@@ -133,7 +133,7 @@ class ParserUtil:
                     toaday_detail_weather_element["temperature"] = toaday_detail_weather_element_result[0][3].decode("utf-8")
                     toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
                     toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
-                    toaday_detail_weather_element["sun_up"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
+                    toaday_detail_weather_element["sun_time"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
                     toaday_detail_weather_list_result.append(toaday_detail_weather_element)
 
         print "parse_zh_tian_qi_today_detail_weather---end"
