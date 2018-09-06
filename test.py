@@ -69,6 +69,9 @@ if __name__ == "__main__":
                     if result["code"] == 0:
 
                         mHttpUtil.get_today_weather_temperature_icon_css(mParserUtil, driver, result)
+                        mHttpUtil.get_today_humidity_icon_css(mParserUtil, driver, result)
+                        mHttpUtil.get_today_wind_icon_css(mParserUtil, driver, result)
+                        mHttpUtil.get_today_air_quality_icon_css(mParserUtil, driver, result)
 
                         toaday_detail_weather_page_content = mParserUtil.get_zh_tian_qi_today_detail_weather(today_weather_page_content[0])
                         if len(toaday_detail_weather_page_content) > 0:
@@ -78,7 +81,11 @@ if __name__ == "__main__":
                                     # print toaday_detail_weather_element_result
                                     # print toaday_detail_weather_element_result["weather_icon_css"]
                                     mHttpUtil.get_toaday_detail_weather_icon_css(mParserUtil, driver, toaday_detail_weather_element_result)
-
+                                    mHttpUtil.get_toaday_detail_weather_wind_icon_css(mParserUtil, driver, toaday_detail_weather_element_result)
+                                    if toaday_detail_weather_element_result["is_sun_up"] == 1:
+                                        mHttpUtil.get_toaday_detail_weather_sun_up_icon_css(mParserUtil, driver, toaday_detail_weather_element_result)
+                                    else:
+                                        mHttpUtil.get_toaday_detail_weather_sun_down_icon_css(mParserUtil, driver, toaday_detail_weather_element_result)
                                 result["today_weather_detail"] = toaday_detail_weather_list_result
                             else:
                                 result["code"] = -6
@@ -119,13 +126,13 @@ if __name__ == "__main__":
                 else:
                     result["code"] = -3
                     result["desc"] = "获取城市数据失败"
+
+                driver.close()
+                driver.quit()
             except BaseException, e:
                 print e.message
                 driver.close()
                 driver.quit()
-
-            driver.close()
-            driver.quit()
 
         else:
             result["code"] = -2

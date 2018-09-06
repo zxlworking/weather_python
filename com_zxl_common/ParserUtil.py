@@ -91,16 +91,16 @@ class ParserUtil:
         i = 0
         for toaday_detail_weather_element_content in toaday_detail_weather_list_content[0]:
             pattern = re.compile(u""".*?(<p class="sun sunUp">).*?""", re.S)
-            is_daytime = re.findall(pattern, toaday_detail_weather_element_content)
+            is_sun_up = re.findall(pattern, toaday_detail_weather_element_content)
 
             # print toaday_detail_weather_element_content.decode("utf-8")
             # print is_daytime
             # print "\n"
 
-            if len(is_daytime) > 0:
+            if len(is_sun_up) > 0:
                 toaday_detail_weather_element = {}
-                #标题==天气图标样式==天气==天气描述==气温==风向==风级==日出时间
-                pattern = re.compile(u""".*?<li>.*?<h1>(.*?)</h1>.*?<big class="(.*?)"></big>.*?<p class="wea" title=".*?">(.*?)</p>.*?<div class="sky">.*?<span class=".*?">(.*?)</span>.*?<i class="icon"></i>.*?<div class="skypop">.*?</div>.*?</div>.*?<p class="tem">.*?<span>(.*?)</span><em>°C</em>.*?</p>.*?<p class="win">.*?<i class=".*?"></i>.*?<span class="" title="(.*?)">(.*?)</span>.*?</p>.*?<p class="sun sunUp"><i></i>.*?<span>(.*?)</span>.*?</p>.*?""", re.S)
+                #标题==天气图标样式==天气==天气描述==气温==风向图标样式==风向==风级==日出时间
+                pattern = re.compile(u""".*?<li>.*?<h1>(.*?)</h1>.*?<big class="(.*?)"></big>.*?<p class="wea" title=".*?">(.*?)</p>.*?<div class="sky">.*?<span class=".*?">(.*?)</span>.*?<i class="icon"></i>.*?<div class="skypop">.*?</div>.*?</div>.*?<p class="tem">.*?<span>(.*?)</span><em>°C</em>.*?</p>.*?<p class="win">.*?<i class="(.*?)"></i>.*?<span class="" title="(.*?)">(.*?)</span>.*?</p>.*?<p class="sun sunUp"><i></i>.*?<span>(.*?)</span>.*?</p>.*?""", re.S)
                 toaday_detail_weather_element_result = re.findall(pattern, toaday_detail_weather_element_content)
 
                 # print "toaday_detail_weather_element_result\n"
@@ -112,15 +112,17 @@ class ParserUtil:
                     toaday_detail_weather_element["weather"] = toaday_detail_weather_element_result[0][2].decode("utf-8")
                     toaday_detail_weather_element["weather_desc"] = toaday_detail_weather_element_result[0][3].decode("utf-8")
                     toaday_detail_weather_element["temperature"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
-                    toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
-                    toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
-                    toaday_detail_weather_element["sun_time"] = toaday_detail_weather_element_result[0][7].decode("utf-8")
+                    toaday_detail_weather_element["wind_icon_css"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
+                    toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
+                    toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][7].decode("utf-8")
+                    toaday_detail_weather_element["sun_time"] = toaday_detail_weather_element_result[0][8].decode("utf-8")
+                    toaday_detail_weather_element["is_sun_up"] = 1
                     toaday_detail_weather_list_result.append(toaday_detail_weather_element)
             else:
                 toaday_detail_weather_element = {}
-                # 标题==天气图标样式==天气==气温==风向==风级==日落时间
+                # 标题==天气图标样式==天气==气温==风向图标样式==风向==风级==日落时间
                 pattern = re.compile(
-                    u""".*?<li>.*?<h1>(.*?)</h1>.*?<big class="(.*?)"></big>.*?<p class="wea" title=".*?">(.*?)</p>.*?<div class="sky">.*?</div>.*?<p class="tem">.*?<span>(.*?)</span><em>°C</em>.*?</p>.*?<p class="win">.*?<i class=".*?"></i>.*?<span class="" title="(.*?)">(.*?)</span>.*?</p>.*?<p class="sun sunDown"><i></i>.*?<span>(.*?)</span>.*?</p>.*?""",
+                    u""".*?<li>.*?<h1>(.*?)</h1>.*?<big class="(.*?)"></big>.*?<p class="wea" title=".*?">(.*?)</p>.*?<div class="sky">.*?</div>.*?<p class="tem">.*?<span>(.*?)</span><em>°C</em>.*?</p>.*?<p class="win">.*?<i class="(.*?)"></i>.*?<span class="" title="(.*?)">(.*?)</span>.*?</p>.*?<p class="sun sunDown"><i></i>.*?<span>(.*?)</span>.*?</p>.*?""",
                     re.S)
                 toaday_detail_weather_element_result = re.findall(pattern, toaday_detail_weather_element_content)
 
@@ -132,9 +134,11 @@ class ParserUtil:
                     toaday_detail_weather_element["weather_icon_css"] = toaday_detail_weather_element_result[0][1].decode("utf-8")
                     toaday_detail_weather_element["weather"] = toaday_detail_weather_element_result[0][2].decode("utf-8")
                     toaday_detail_weather_element["temperature"] = toaday_detail_weather_element_result[0][3].decode("utf-8")
-                    toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
-                    toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
-                    toaday_detail_weather_element["sun_time"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
+                    toaday_detail_weather_element["wind_icon_css"] = toaday_detail_weather_element_result[0][4].decode("utf-8")
+                    toaday_detail_weather_element["wind_direction"] = toaday_detail_weather_element_result[0][5].decode("utf-8")
+                    toaday_detail_weather_element["wind_value"] = toaday_detail_weather_element_result[0][6].decode("utf-8")
+                    toaday_detail_weather_element["sun_time"] = toaday_detail_weather_element_result[0][7].decode("utf-8")
+                    toaday_detail_weather_element["is_sun_up"] = 0
                     toaday_detail_weather_list_result.append(toaday_detail_weather_element)
 
         print "parse_zh_tian_qi_today_detail_weather---end"
