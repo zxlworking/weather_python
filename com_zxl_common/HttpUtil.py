@@ -256,3 +256,10 @@ class HttpUtil:
         toaday_detail_weather_element_result["sun_icon_css"]["height"] = mParserUtil.get_px_value(sun_css_selector.value_of_css_property("height"))
 
         print "get_toaday_detail_weather_sun_down_icon_css---end"
+
+    def query_city_by_location(self, l, type):
+        # http: // gc.ditu.aliyun.com / regeocoding?l = 31.949393, 118.808820 & type = 100
+        url = "http://gc.ditu.aliyun.com/regeocoding?l=%s&type=%s" % (l, type)
+        user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+        headers = {"User-Agent": user_agent}
+        return self.get_http_content(url, headers)

@@ -10,6 +10,8 @@ from selenium import webdriver
 from com_zxl_common.CityUtil import *
 from com_zxl_common.HttpUtil import *
 from com_zxl_common.ParserUtil import *
+from lxml import etree
+
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -53,12 +55,15 @@ if __name__ == "__main__":
 
         if len(mCityResult) > 0:
 
+            print time.asctime(time.localtime(time.time()))
             driver = mHttpUtil.get_today_weather_from_zh_tian_qi(mCityResult[0]["city_code"])
 
             try:
                 weather_page_content = driver.page_source
 
+
                 today_weather_page_content = mParserUtil.get_zh_tian_qi_today_weather(weather_page_content)
+
                 # print "\ntoday_weather_page_content:\n"
                 # print today_weather_page_content
 
@@ -137,6 +142,8 @@ if __name__ == "__main__":
         else:
             result["code"] = -2
             result["desc"] = "没有该城市数据"
+
+    print time.asctime(time.localtime(time.time()))
 
     print "Content-type:text/html;charset=UTF-8"
     print "Accept:application/json"
