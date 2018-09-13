@@ -15,6 +15,18 @@ class XPathParserUtil:
         result["desc"] = "success"
         result["today_weather"] = {}
 
+        sk_content = driver.find_element_by_xpath('//div[@class="sk"]').get_attribute("innerHTML")
+        is_limit = "zs limit" in sk_content
+
+        if is_limit:
+            result["today_weather"]["is_limit"] = 1
+            limit_content = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs limit"]/span').text
+            limit_content = limit_content + driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs limit"]/em').text
+            result["today_weather"]["limit_content"] = limit_content
+        else:
+            result["today_weather"]["is_limit"] = 0
+
+
         result["today_weather"]["now_time"] = driver.find_element_by_xpath('//div[@class="sk"]/p[@class="time"]/span').text
         # result["today_weather"]["humidity"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs h"]/span').text
         result["today_weather"]["humidity"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs h"]/em').text

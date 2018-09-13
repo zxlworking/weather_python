@@ -183,6 +183,23 @@ class HttpUtil:
 
         print "get_today_air_quality_icon_css---end"
 
+    def get_today_limit_icon_css(self, mParserUtil, driver, result):
+        print "get_today_limit_icon_css---start"
+
+        result["today_weather"]["limit_icon_css"] = {}
+
+        therm_css_selector = driver.find_element_by_css_selector(".con .left i, .today .sk .therm")
+        result["today_weather"]["limit_icon_css"]["img"] = mParserUtil.get_single_bracket_str(therm_css_selector.value_of_css_property("background-image"))
+        limit_css_selector = driver.find_element_by_css_selector(".today .t .sk .limit i")
+        result["today_weather"]["limit_icon_css"]["background_position_x"] = mParserUtil.get_px_value(limit_css_selector.value_of_css_property("background-position-x"))
+        result["today_weather"]["limit_icon_css"]["background_position_y"] = mParserUtil.get_px_value(limit_css_selector.value_of_css_property("background-position-y"))
+
+        zs_css_selector = driver.find_element_by_css_selector(".today .t .sk .zs i")
+        result["today_weather"]["limit_icon_css"]["width"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("width"))
+        result["today_weather"]["limit_icon_css"]["height"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("height"))
+
+        print "get_today_limit_icon_css---end"
+
     def get_toaday_detail_weather_icon_css(self, mParserUtil, driver, toaday_detail_weather_element_result):
         big_css_selector = driver.find_element_by_css_selector(
             "[class='%s']" % toaday_detail_weather_element_result["weather_icon_css"])

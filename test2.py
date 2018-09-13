@@ -75,6 +75,9 @@ if __name__ == "__main__":
                 try:
                     mXPathParserUtil.parse_today_weather_content(driver, result)
 
+                    if result["today_weather"]["is_limit"] == 1:
+                        mHttpUtil.get_today_limit_icon_css(mParserUtil, driver, result)
+
                     mHttpUtil.get_today_weather_temperature_icon_css(mParserUtil, driver, result)
                     mHttpUtil.get_today_humidity_icon_css(mParserUtil, driver, result)
                     mHttpUtil.get_today_wind_icon_css(mParserUtil, driver, result)

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ac484891-3af0-4441-b830-209c00385105" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,13 +25,37 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="HttpUtil.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="194" column="120" selection-start-line="194" selection-start-column="120" selection-end-line="194" selection-end-column="120" />
+              <folding>
+                <element signature="e#37#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="test2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="217">
+              <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
               <folding>
                 <element signature="e#37#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XPathParserUtil.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="47" />
+              <folding>
+                <element signature="e#37#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>olFtC1i--Xg5-noFz0tSyeSRppc0</find>
       <find>urle</find>
       <find>enco</find>
       <find>pars</find>
@@ -90,6 +115,7 @@
       <find>weather_icon_css</find>
       <find>fo</find>
       <find>foot</find>
+      <find>limit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,13 +134,13 @@
         <option value="$PROJECT_DIR$/cgi_wx_weather.py" />
         <option value="$PROJECT_DIR$/wx.txt" />
         <option value="$PROJECT_DIR$/com_zxl_common/PrintUtil.py" />
-        <option value="$PROJECT_DIR$/foo.txt" />
         <option value="$PROJECT_DIR$/com_zxl_common/CityUtil.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" />
         <option value="$PROJECT_DIR$/test3.py" />
-        <option value="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/ParserUtil.py" />
+        <option value="$PROJECT_DIR$/foo.txt" />
+        <option value="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" />
+        <option value="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" />
         <option value="$PROJECT_DIR$/test2.py" />
       </list>
     </option>
@@ -413,17 +439,30 @@
       <option name="project" value="LOCAL" />
       <updated>1536820367656</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add zhongg guo tianqi wang today weather">
+      <created>1536820601187</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1536820601187</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add zhongg guo tianqi wang today weather">
+      <created>1536836704093</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1536836704124</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1380" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17660208" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17585693" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.37521514" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3253012" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32922733" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -440,20 +479,20 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.37521514" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12539515" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17660208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289777" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39938557" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922733" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39865622" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32922733" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -701,37 +740,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/remote/webelement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="481" column="20" selection-start-line="481" selection-start-column="8" selection-end-line="481" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-762174762/time.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3175">
           <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="261" column="69" selection-start-line="261" selection-start-column="69" selection-end-line="261" selection-end-column="69" />
-          <folding>
-            <element signature="e#37#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="38" />
-          <folding>
-            <element signature="e#37#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,13 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_common/ParserUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="166" column="27" selection-start-line="166" selection-start-column="27" selection-end-line="166" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -794,13 +799,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/com_zxl_common/ParserUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="166" column="27" selection-start-line="166" selection-start-column="27" selection-end-line="166" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/remote/webelement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="680" lean-forward="true" selection-start-line="680" selection-end-line="680" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/foo.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="47" />
+          <folding>
+            <element signature="e#37#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="194" column="120" selection-start-line="194" selection-start-column="120" selection-end-line="194" selection-end-column="120" />
+          <folding>
+            <element signature="e#37#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+        <state relative-caret-position="217">
+          <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
           <folding>
             <element signature="e#37#47#0" expanded="true" />
           </folding>
