@@ -8,7 +8,7 @@ from selenium import webdriver
 class XPathParserUtil:
 
     def parse_today_weather_content(self, driver, result):
-        #print driver.page_source.decode("utf-8")
+        # print driver.page_source.decode("utf-8")
         # today_weather_content = driver.find_element_by_xpath('//div[@class="con today clearfix"]')
 
         result["code"] = 0
@@ -30,12 +30,17 @@ class XPathParserUtil:
         # print today_weather_content
 
     def parse_today_detail_weather_content(self, driver, result):
+
+        # x = driver.find_element_by_xpath('//ul[@class="clearfix"]').get_attribute("innerHTML")
+        # print x
+
         is_first_sun_up = True
         try:
             #白天
-            driver.find_element_by_xpath('//ul[@class="clearfix"]/li/p[@class="sun sunUp"]')
+            clearfix_li_1_content = driver.find_element_by_xpath('//ul[@class="clearfix"]/li[1]').get_attribute("innerHTML")
+            is_first_sun_up = "sun sunUp" in clearfix_li_1_content
         except BaseException,e:
-            print "exception"
+            print "parse_today_detail_weather_content exception"
             print e
             #夜晚
             is_first_sun_up = False
@@ -43,12 +48,14 @@ class XPathParserUtil:
         toaday_detail_weather_list_result = []
         result["today_weather_detail"] = toaday_detail_weather_list_result
 
+        print is_first_sun_up
+
         if is_first_sun_up:
             self.parse_day_detail_weather_content(True, driver, result)
             self.parse_night_detail_weather_content(False, driver, result)
         else:
-            self.parse_day_detail_weather_content(False, driver, result)
             self.parse_night_detail_weather_content(True, driver, result)
+            self.parse_day_detail_weather_content(False, driver, result)
 
     def parse_day_detail_weather_content(self, is_first_sun_up, driver, result):
 
@@ -57,12 +64,11 @@ class XPathParserUtil:
         append_str = ""
         if is_first_sun_up:
             append_str = "[1]"
-            toaday_detail_weather_element["is_sun_up"] = 1
         else:
             append_str = "[2]"
-            toaday_detail_weather_element["is_sun_up"] = 0
 
 
+        toaday_detail_weather_element["is_sun_up"] = 1
         toaday_detail_weather_element["title"] = driver.find_element_by_xpath('//ul[@class="clearfix"]/li%s/h1' % append_str).text
         toaday_detail_weather_element["weather_icon_css"] = driver.find_element_by_xpath('//ul[@class="clearfix"]/li%s/big' % append_str).get_attribute("class")
         toaday_detail_weather_element["weather"] = driver.find_element_by_xpath('//ul[@class="clearfix"]/li%s/p[@class="wea"]' % append_str).text
@@ -81,11 +87,10 @@ class XPathParserUtil:
         append_str = ""
         if is_first_sun_down:
             append_str = "[1]"
-            toaday_detail_weather_element["is_sun_up"] = 0
         else:
             append_str = "[2]"
-            toaday_detail_weather_element["is_sun_up"] = 1
 
+        toaday_detail_weather_element["is_sun_up"] = 0
         toaday_detail_weather_element["title"] = driver.find_element_by_xpath('//ul[@class="clearfix"]/li%s/h1' % append_str).text
         toaday_detail_weather_element["weather_icon_css"] = driver.find_element_by_xpath('//ul[@class="clearfix"]/li%s/big' % append_str).get_attribute("class")
         toaday_detail_weather_element["weather"] = driver.find_element_by_xpath('//ul[@class="clearfix"]/li%s/p[@class="wea"]' % append_str).text

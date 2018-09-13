@@ -16,14 +16,14 @@ result = {}
 
 if __name__ == "__main__":
 
-    form = cgi.FieldStorage()
-    l = form.getvalue("l").decode("utf-8")
+    # form = cgi.FieldStorage()
+    # l = form.getvalue("l").decode("utf-8")
     # city_name = form.getvalue("city").decode("utf-8")
 
     # city_name = '南京'
     # print "city_name============test2--->%s" % city_name
     # l = "31.949393,118.808820"
-    # l = "39.9775,116.308781"
+    l = "39.9775,116.308781"
     print "city_name============test2--->%s" % l
     fo = open("foo.txt", "a+")
     fo.write(l)
@@ -74,10 +74,12 @@ if __name__ == "__main__":
 
                 try:
                     mXPathParserUtil.parse_today_weather_content(driver, result)
+
                     mHttpUtil.get_today_weather_temperature_icon_css(mParserUtil, driver, result)
                     mHttpUtil.get_today_humidity_icon_css(mParserUtil, driver, result)
                     mHttpUtil.get_today_wind_icon_css(mParserUtil, driver, result)
                     mHttpUtil.get_today_air_quality_icon_css(mParserUtil, driver, result)
+
                     mXPathParserUtil.parse_today_detail_weather_content(driver, result)
 
                     for toaday_detail_weather_element_result in result["today_weather_detail"]:
