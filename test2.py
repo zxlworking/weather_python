@@ -25,6 +25,10 @@ if __name__ == "__main__":
     # l = "31.949393,118.808820"
     # l = "39.9775,116.308781"
     print "city_name============test2--->%s" % l
+    fo = open("foo.txt", "a+")
+    fo.write(l)
+    fo.write("\n")
+    fo.close()
 
     if l is None:
         result["code"] = -1
@@ -42,6 +46,10 @@ if __name__ == "__main__":
             adm_name = city_info_json["addrList"][0]["admName"]
             result["address_info"] = adm_name
             print adm_name
+            fo = open("foo.txt", "a+")
+            fo.write(adm_name)
+            fo.write("\n")
+            fo.close()
             city_name = mParserUtil.parse_city_info(adm_name)
             # city_name = adm_name.split(",")[1].decode("utf-8")
             print city_name
