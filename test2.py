@@ -17,12 +17,13 @@ result = {}
 if __name__ == "__main__":
 
     form = cgi.FieldStorage()
-    # city_name = form.getvalue("city").decode("utf-8")
     l = form.getvalue("l").decode("utf-8")
+    # city_name = form.getvalue("city").decode("utf-8")
 
     # city_name = '南京'
     # print "city_name============test2--->%s" % city_name
     # l = "31.949393,118.808820"
+    # l = "39.9775,116.308781"
     print "city_name============test2--->%s" % l
 
     if l is None:
@@ -41,7 +42,8 @@ if __name__ == "__main__":
             adm_name = city_info_json["addrList"][0]["admName"]
             result["address_info"] = adm_name
             print adm_name
-            city_name = adm_name.split(",")[1].decode("utf-8")
+            city_name = mParserUtil.parse_city_info(adm_name)
+            # city_name = adm_name.split(",")[1].decode("utf-8")
             print city_name
 
             result["city_name"] = city_name
@@ -54,9 +56,13 @@ if __name__ == "__main__":
             if len(mCityResult) > 0:
 
                 test_time = time.asctime(time.localtime(time.time()))
-                print "test_time1"
+                print test_time
                 print time.time()
                 driver = mHttpUtil.get_today_weather_from_zh_tian_qi(mCityResult[0]["city_code"])
+
+                test_time = time.asctime(time.localtime(time.time()))
+                print test_time
+                print time.time()
 
                 try:
                     mXPathParserUtil.parse_today_weather_content(driver, result)
@@ -100,7 +106,7 @@ if __name__ == "__main__":
 
 
     test_time = time.asctime(time.localtime(time.time()))
-    print "test_time2"
+    print test_time
     print time.time()
 
     print "Content-type:text/html;charset=UTF-8"

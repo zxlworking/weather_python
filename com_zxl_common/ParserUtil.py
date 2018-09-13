@@ -159,3 +159,9 @@ class ParserUtil:
             return result[0]
         else:
             return 0
+
+    def parse_city_info(self, adm_name):
+        name_array = adm_name.split(",")
+        for name in name_array:
+            if "市" in name:
+                return name
