@@ -165,3 +165,13 @@ class ParserUtil:
         for name in name_array:
             if "市" in name:
                 return name
+
+    def parse_today_weather_simple_content(self, result):
+        str = ""
+        content_array = result["today_weather"]["simple_content"].split(" ")
+        for item in content_array:
+            if "时" not in item:
+                str_item = item.strip()
+                if len(str_item) > 0:
+                    str = str + str_item + " "
+        result["today_weather"]["simple_content"] = str.strip()

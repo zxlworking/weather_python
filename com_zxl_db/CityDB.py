@@ -12,15 +12,19 @@ class CityDB:
         "  `city_code` varchar(16),"
         "  `city_name` text,"
         "  `city_py` text,"
+        "  `city_head` text,"
         "  `province` text,"
         "  PRIMARY KEY (`_id`)"
         ") ENGINE=InnoDB")
 
-    INSERT_CITY_SQL = ("INSERT INTO " + CITY_TABLE + " " "(city_code, city_name, city_py, province) "
-                                                       "VALUES (%s, %s, %s, %s)")
+    INSERT_CITY_SQL = ("INSERT INTO " + CITY_TABLE + " " "(city_code, city_name, city_py, city_head, province) "
+                                                       "VALUES (%s, %s, %s, %s, %s)")
 
     QUERY_CITY_BY_CITY_NAME_SQL = ("SELECT _id, city_code, city_name, city_py, province "
                            " FROM " + CITY_TABLE +
                            " WHERE locate(city_name,'%s') = 1")
+
+    QUERY_ALL_CITY_SQL = ("SELECT _id, city_code, city_name, city_py, city_head, province "
+                                   " FROM " + CITY_TABLE + " order by city_head")
 
     QUERY_CITY_TOTAL_COUNT_SQL = ("SELECT COUNT(*)total_count FROM " + CITY_TABLE)

@@ -60,6 +60,9 @@ class CityUtil:
     def query_city_by_city_name(self, city_name):
         return self.mDBUtil.query_to_city_by_city_name(city_name)
 
+    def query_all_city(self):
+        return self.mDBUtil.query_all_city()
+
 
 if __name__ == "__main__":
     mCityUtil = CityUtil()

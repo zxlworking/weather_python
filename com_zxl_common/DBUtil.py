@@ -64,6 +64,7 @@ class DBUtil():
         data_city = (mCityBean.mCityCode,
                           mCityBean.mCityName.encode("utf-8"),
                           mCityBean.mCityPinYing,
+                          mCityBean.mCityPinYing[0].upper(),
                           mCityBean.mProvince.encode("utf-8"))
         cursor.execute(CityDB.INSERT_CITY_SQL, data_city)
         cnx.commit()
@@ -76,6 +77,15 @@ class DBUtil():
             result_element = {"_id": _id, "city_code": city_code, "city_name": city_name,
                               "city_py": city_py,
                               "province": province}
+            result_element_list.append(result_element)
+        return result_element_list
+
+    def query_all_city(self):
+        cursor.execute(CityDB.QUERY_ALL_CITY_SQL)
+        result_element_list = []
+        for (_id, city_code, city_name, city_py, city_head, province) in cursor:
+            result_element = {"_id": _id, "city_code": city_code, "city_name": city_name,
+                              "city_py": city_py, "city_head": city_head, "province": province}
             result_element_list.append(result_element)
         return result_element_list
 

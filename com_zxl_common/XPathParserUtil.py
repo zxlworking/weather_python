@@ -18,6 +18,9 @@ class XPathParserUtil:
         sk_content = driver.find_element_by_xpath('//div[@class="sk"]').get_attribute("innerHTML")
         is_limit = "zs limit" in sk_content
 
+        today_weather_simple_content = driver.find_element_by_xpath('//input[@id="hidden_title"]').get_attribute("value")
+        result["today_weather"]["simple_content"] = today_weather_simple_content
+
         if is_limit:
             result["today_weather"]["is_limit"] = 1
             limit_content = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs limit"]/span').text

@@ -16,14 +16,14 @@ result = {}
 
 if __name__ == "__main__":
 
-    # form = cgi.FieldStorage()
-    # l = form.getvalue("l").decode("utf-8")
+    form = cgi.FieldStorage()
+    l = form.getvalue("l").decode("utf-8")
     # city_name = form.getvalue("city").decode("utf-8")
 
     # city_name = '南京'
     # print "city_name============test2--->%s" % city_name
     # l = "31.949393,118.808820"
-    l = "39.9775,116.308781"
+    # l = "39.9775,116.308781"
     print "city_name============test2--->%s" % l
     fo = open("foo.txt", "a+")
     fo.write(l)
@@ -74,6 +74,8 @@ if __name__ == "__main__":
 
                 try:
                     mXPathParserUtil.parse_today_weather_content(driver, result)
+
+                    mParserUtil.parse_today_weather_simple_content(result)
 
                     if result["today_weather"]["is_limit"] == 1:
                         mHttpUtil.get_today_limit_icon_css(mParserUtil, driver, result)
