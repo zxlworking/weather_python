@@ -21,6 +21,7 @@ if __name__ == "__main__":
     # l = form.getvalue("l").decode("utf-8")
 
     # city_name = '南京'
+    # city_name = '北京'
     print "city_name============test2--->%s" % city_name
     # l = "31.949393,118.808820"
     # l = "39.9775,116.308781"
