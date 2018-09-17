@@ -20,9 +20,36 @@ class XPathParserUtil:
 
 
         sk_content = driver.find_element_by_xpath('//div[@class="sk"]').get_attribute("innerHTML")
-        is_limit = "zs limit" in sk_content
 
-        if is_limit:
+
+
+        result["today_weather"]["now_time"] = driver.find_element_by_xpath('//div[@class="sk"]/p[@class="time"]/span').text
+        result["today_weather"]["temperature"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="tem"]/span').text
+
+        if "zs h" in sk_content:
+            result["today_weather"]["is_h"] = 1
+            result["today_weather"]["humidity"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs h"]/em').text
+        else:
+            result["today_weather"]["is_h"] = 0
+            result["today_weather"]["humidity"] = "暂无数据"
+
+        if "zs w" in sk_content:
+            result["today_weather"]["is_w"] = 1
+            result["today_weather"]["wind_direction"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs w"]/span').text
+            result["today_weather"]["wind_value"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs w"]/em').text
+        else:
+            result["today_weather"]["is_w"] = 0
+            result["today_weather"]["wind_direction"] = "风向"
+            result["today_weather"]["wind_value"] = "暂无数据"
+
+        if "zs pol" in sk_content:
+            result["today_weather"]["is_pol"] = 1
+            result["today_weather"]["air_quality"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs pol"]/span/a').text
+        else:
+            result["today_weather"]["is_pol"] = 0
+            result["today_weather"]["air_quality"] = "暂无数据"
+
+        if "zs limit" in sk_content:
             result["today_weather"]["is_limit"] = 1
             limit_content = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs limit"]/span').text
 
@@ -33,15 +60,6 @@ class XPathParserUtil:
             result["today_weather"]["limit_content"] = limit_content
         else:
             result["today_weather"]["is_limit"] = 0
-
-
-        result["today_weather"]["now_time"] = driver.find_element_by_xpath('//div[@class="sk"]/p[@class="time"]/span').text
-        # result["today_weather"]["humidity"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs h"]/span').text
-        result["today_weather"]["humidity"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs h"]/em').text
-        result["today_weather"]["wind_direction"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs w"]/span').text
-        result["today_weather"]["wind_value"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs w"]/em').text
-        result["today_weather"]["temperature"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="tem"]/span').text
-        result["today_weather"]["air_quality"] = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="zs pol"]/span/a').text
         # today_weather_content = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="therm"]')
         # print today_weather_content.value_of_css_property("therm")
         # today_weather_content = driver.find_element_by_xpath('//div[@class="sk"]/div[@class="therm"]/p/i[@class="t"]')
