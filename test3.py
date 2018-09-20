@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # city_name = '南京'
     # city_name = '北京'
     # city_name = '泗阳'
-    print "city_name============test2--->%s" % city_name
+    print "city_name============test3--->%s" % city_name
     # l = "31.949393,118.808820"
     # l = "39.9775,116.308781"
     # print "city_name============test2--->%s" % l
@@ -63,7 +63,7 @@ if __name__ == "__main__":
                 print time.time()
 
                 try:
-                    mXPathParserUtil.parse_today_weather_content(driver, result)
+                    today_weather_driver = mXPathParserUtil.parse_today_weather_content(driver, result)
 
                     mParserUtil.parse_today_weather_simple_content(result)
 
@@ -81,7 +81,7 @@ if __name__ == "__main__":
                     if result["today_weather"]["is_pol"] == 1:
                         mHttpUtil.get_today_air_quality_icon_css(mParserUtil, driver, result)
 
-                    mXPathParserUtil.parse_today_detail_weather_content(driver, result)
+                    mXPathParserUtil.parse_today_detail_weather_content(today_weather_driver, result)
 
                     for toaday_detail_weather_element_result in result["today_weather_detail"]:
                         # print toaday_detail_weather_element_result

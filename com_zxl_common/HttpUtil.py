@@ -5,6 +5,10 @@ import time
 import urllib2
 import sys
 from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
+from selenium.common.exceptions import TimeoutException
 
 
 # reload(sys)
@@ -105,7 +109,7 @@ class HttpUtil:
         return driver
 
     def get_today_weather_temperature_icon_css(self, mParserUtil, driver, result):
-        print "get_today_weather_temperature_icon_css---start"
+        # print "get_today_weather_temperature_icon_css---start"
 
         result["today_weather"]["temperature_icon_css"] = {}
 
@@ -130,10 +134,10 @@ class HttpUtil:
             c_css_selector.value_of_css_property("width"))
         result["today_weather"]["temperature_icon_css"]["height2"] = mParserUtil.get_px_value(
             c_css_selector.value_of_css_property("height"))
-        print "get_today_weather_temperature_icon_css---end"
+        # print "get_today_weather_temperature_icon_css---end"
 
     def get_today_humidity_icon_css(self, mParserUtil, driver, result):
-        print "get_today_humidity_icon_css---start"
+        # print "get_today_humidity_icon_css---start"
 
         result["today_weather"]["humidity_icon_css"] = {}
 
@@ -147,10 +151,10 @@ class HttpUtil:
         result["today_weather"]["humidity_icon_css"]["width"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("width"))
         result["today_weather"]["humidity_icon_css"]["height"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("height"))
 
-        print "get_today_humidity_icon_css---end"
+        # print "get_today_humidity_icon_css---end"
 
     def get_today_wind_icon_css(self, mParserUtil, driver, result):
-        print "get_today_wind_icon_css---start"
+        # print "get_today_wind_icon_css---start"
 
         result["today_weather"]["wind_icon_css"] = {}
 
@@ -164,10 +168,10 @@ class HttpUtil:
         result["today_weather"]["wind_icon_css"]["width"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("width"))
         result["today_weather"]["wind_icon_css"]["height"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("height"))
 
-        print "get_today_wind_icon_css---end"
+        # print "get_today_wind_icon_css---end"
 
     def get_today_air_quality_icon_css(self, mParserUtil, driver, result):
-        print "get_today_air_quality_icon_css---start"
+        # print "get_today_air_quality_icon_css---start"
 
         result["today_weather"]["air_quality_icon_css"] = {}
 
@@ -181,10 +185,10 @@ class HttpUtil:
         result["today_weather"]["air_quality_icon_css"]["width"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("width"))
         result["today_weather"]["air_quality_icon_css"]["height"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("height"))
 
-        print "get_today_air_quality_icon_css---end"
+        # print "get_today_air_quality_icon_css---end"
 
     def get_today_limit_icon_css(self, mParserUtil, driver, result):
-        print "get_today_limit_icon_css---start"
+        # print "get_today_limit_icon_css---start"
 
         result["today_weather"]["limit_icon_css"] = {}
 
@@ -198,7 +202,7 @@ class HttpUtil:
         result["today_weather"]["limit_icon_css"]["width"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("width"))
         result["today_weather"]["limit_icon_css"]["height"] = mParserUtil.get_px_value(zs_css_selector.value_of_css_property("height"))
 
-        print "get_today_limit_icon_css---end"
+        # print "get_today_limit_icon_css---end"
 
     def get_toaday_detail_weather_icon_css(self, mParserUtil, driver, toaday_detail_weather_element_result):
         big_css_selector = driver.find_element_by_css_selector(
@@ -216,7 +220,7 @@ class HttpUtil:
             big_css_selector.value_of_css_property("height"))
 
     def get_toaday_detail_weather_wind_icon_css(self, mParserUtil, driver, toaday_detail_weather_element_result):
-        print "get_toaday_detail_weather_wind_icon_css---start"
+        # print "get_toaday_detail_weather_wind_icon_css---start"
 
         wind_icon_css = toaday_detail_weather_element_result["wind_icon_css"]
 
@@ -238,10 +242,10 @@ class HttpUtil:
         toaday_detail_weather_element_result["wind_icon_css"]["height"] = mParserUtil.get_px_value(
             wind_i_css_selector.value_of_css_property("height"))
 
-        print "get_toaday_detail_weather_wind_icon_css---start"
+        # print "get_toaday_detail_weather_wind_icon_css---start"
 
     def get_toaday_detail_weather_sun_up_icon_css(self, mParserUtil, driver, toaday_detail_weather_element_result):
-        print "get_toaday_detail_weather_sun_up_icon_css---start"
+        # print "get_toaday_detail_weather_sun_up_icon_css---start"
 
         toaday_detail_weather_element_result["sun_icon_css"] = {}
 
@@ -255,10 +259,10 @@ class HttpUtil:
         toaday_detail_weather_element_result["sun_icon_css"]["width"] = mParserUtil.get_px_value(sun_css_selector.value_of_css_property("width"))
         toaday_detail_weather_element_result["sun_icon_css"]["height"] = mParserUtil.get_px_value(sun_css_selector.value_of_css_property("height"))
 
-        print "get_toaday_detail_weather_sun_up_icon_css---end"
+        # print "get_toaday_detail_weather_sun_up_icon_css---end"
 
     def get_toaday_detail_weather_sun_down_icon_css(self, mParserUtil, driver, toaday_detail_weather_element_result):
-        print "get_toaday_detail_weather_sun_down_icon_css---start"
+        # print "get_toaday_detail_weather_sun_down_icon_css---start"
 
         toaday_detail_weather_element_result["sun_icon_css"] = {}
 
@@ -272,7 +276,7 @@ class HttpUtil:
         toaday_detail_weather_element_result["sun_icon_css"]["width"] = mParserUtil.get_px_value(sun_css_selector.value_of_css_property("width"))
         toaday_detail_weather_element_result["sun_icon_css"]["height"] = mParserUtil.get_px_value(sun_css_selector.value_of_css_property("height"))
 
-        print "get_toaday_detail_weather_sun_down_icon_css---end"
+        # print "get_toaday_detail_weather_sun_down_icon_css---end"
 
     def query_city_by_location(self, l, type):
         # http: // gc.ditu.aliyun.com / regeocoding?l = 31.949393, 118.808820 & type = 100
@@ -280,3 +284,31 @@ class HttpUtil:
         user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
         headers = {"User-Agent": user_agent}
         return self.get_http_content(url, headers)
+
+    def get_taobao_anchor(self, page, taobao_anchor_load_listener):
+        url = "http://mm.taobao.com/json/request_top_list.htm?page=%s" % page
+
+        chromedriver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+
+        # 创建chrome参数对象
+        opt = webdriver.ChromeOptions()
+
+        # 把chrome设置成无界面模式，不论windows还是linux都可以，自动适配对应参数
+        opt.set_headless()
+        prefs = {"profile.managed_default_content_settings.images": 2}
+        opt.add_experimental_option("prefs", prefs)
+
+        # 创建chrome无界面对象
+        driver = webdriver.Chrome(executable_path=chromedriver, options=opt)
+
+        # driver = EventFiringWebDriver(driver, taobao_anchor_load_listener)
+
+        driver.get(url)
+
+        # time.sleep(5)
+
+        # chain = ActionChains(driver)
+        # moveelment = driver.find_element_by_xpath('//div[@class="anchor-card-content"]/div[@class="anchor-card"][1]/div/a/div[@class="anchor-info-body"]/div/div[@class="v3-bond-icon-box"]')
+        # chain.move_to_element(moveelment).perform()
+
+        return driver
