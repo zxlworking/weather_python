@@ -19,24 +19,11 @@ if __name__ == "__main__":
     form = cgi.FieldStorage()
     page = form.getvalue("page").decode("utf-8")
 
-    # page = 1
+    # page = 3
     print "page============test4--->%s" % page
 
     mHttpUtil = HttpUtil()
     mXPathParserUtil = XPathParserUtil()
-
-    #test
-    # l = 20
-    # i = 0
-    # for ll in range(l):
-    #     taobao_anchor_element = {}
-    #
-    #     i = i + 1
-    #     print "=======================taobao_anchor_element======================="
-    #     print i
-    #
-    #     x = "[%d]" % i
-    #     print x
 
     if page is None:
         result["code"] = -1

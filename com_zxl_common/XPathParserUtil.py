@@ -152,8 +152,10 @@ class XPathParserUtil:
             result["taobao_anchor_list"] = []
 
 
+
+
             if "anchor-card-content" not in driver.page_source:
-                print "load no ready"
+                print "anchor-card-content load no ready"
                 print time.asctime(time.localtime(time.time()))
                 locator = (By.CLASS_NAME, 'anchor-card-content')
                 WebDriverWait(driver, 20, 0.5).until(EC.presence_of_element_located(locator))

@@ -61,6 +61,7 @@ if __name__ == "__main__":
 
             # print mCityResult
 
+
             if len(mCityResult) > 0:
 
                 test_time = time.asctime(time.localtime(time.time()))
@@ -72,8 +73,9 @@ if __name__ == "__main__":
                 print test_time
                 print time.time()
 
+
                 try:
-                    today_weather_driver = mXPathParserUtil.parse_today_weather_content(driver, result)
+                    mXPathParserUtil.parse_today_weather_content(driver, result)
 
                     mParserUtil.parse_today_weather_simple_content(result)
 
@@ -91,7 +93,7 @@ if __name__ == "__main__":
                     if result["today_weather"]["is_pol"] == 1:
                         mHttpUtil.get_today_air_quality_icon_css(mParserUtil, driver, result)
 
-                    mXPathParserUtil.parse_today_detail_weather_content(today_weather_driver, result)
+                    mXPathParserUtil.parse_today_detail_weather_content(driver, result)
 
                     for toaday_detail_weather_element_result in result["today_weather_detail"]:
                         # print toaday_detail_weather_element_result
@@ -106,7 +108,6 @@ if __name__ == "__main__":
                         else:
                             mHttpUtil.get_toaday_detail_weather_sun_down_icon_css(mParserUtil, driver,
                                                                                   toaday_detail_weather_element_result)
-
                     driver.close()
                     driver.quit()
                 except BaseException, e:
@@ -125,10 +126,14 @@ if __name__ == "__main__":
             result["code"] = -2
             result["desc"] = "获取城市信息失败"
 
-
     test_time = time.asctime(time.localtime(time.time()))
     print test_time
     print time.time()
+
+    fo = open("foo.txt", "a+")
+    fo.write(json.dumps(result, encoding="utf-8", ensure_ascii=False))
+    fo.write("\n")
+    fo.close()
 
     print "Content-type:text/html;charset=UTF-8"
     print "Accept:application/json"

@@ -20,6 +20,7 @@ class CityDB:
     INSERT_CITY_SQL = ("INSERT INTO " + CITY_TABLE + " " "(city_code, city_name, city_py, city_head, province) "
                                                        "VALUES (%s, %s, %s, %s, %s)")
 
+
     QUERY_CITY_BY_CITY_NAME_SQL = ("SELECT _id, city_code, city_name, city_py, province "
                            " FROM " + CITY_TABLE +
                            " WHERE locate(city_name,'%s') = 1")
@@ -28,3 +29,4 @@ class CityDB:
                                    " FROM " + CITY_TABLE + " order by city_head")
 
     QUERY_CITY_TOTAL_COUNT_SQL = ("SELECT COUNT(*)total_count FROM " + CITY_TABLE)
+

@@ -4,6 +4,7 @@ import mysql.connector
 
 from mysql.connector import errorcode
 from com_zxl_db.CityDB import *
+from com_zxl_db.UserDB import *
 from com_zxl_common.PrintUtil import *
 
 
@@ -59,6 +60,18 @@ class DBUtil():
                     exit(1)
             else:
                 self.mPrintUtil.show("OK")
+        for name, ddl in UserDB.TABLES.iteritems():
+            try:
+                self.mPrintUtil.show("Creating table {}: ".format(name),)
+                cursor.execute(ddl)
+            except mysql.connector.Error as err:
+                if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
+                    self.mPrintUtil.show("already exists.")
+                else:
+                    self.mPrintUtil.show(err.msg)
+                    exit(1)
+            else:
+                self.mPrintUtil.show("OK")
 
     def insert_to_city(self, mCityBean):
         data_city = (mCityBean.mCityCode,
@@ -67,6 +80,18 @@ class DBUtil():
                           mCityBean.mCityPinYing[0].upper(),
                           mCityBean.mProvince.encode("utf-8"))
         cursor.execute(CityDB.INSERT_CITY_SQL, data_city)
+        cnx.commit()
+
+    def insert_to_user(self, mUserBean):
+        data_user = (mUserBean.mUserId,
+                     mUserBean.mUserName,
+                     mUserBean.mPassWord,
+                     mUserBean.mPhoneNumber,
+                     mUserBean.mNickName.encode("utf-8"),
+                     mUserBean.mSex,
+                     mUserBean.mBirthday,
+                     mUserBean.mState)
+        cursor.execute(UserDB.INSERT_USER_SQL, data_user)
         cnx.commit()
 
     def query_to_city_by_city_name(self, cityName):
@@ -93,6 +118,42 @@ class DBUtil():
         cursor.execute(CityDB.QUERY_CITY_TOTAL_COUNT_SQL)
         for(total_count, ) in cursor:
             return total_count
+
+    def query_to_user_by_user_name(self, userName):
+        cursor.execute(UserDB.QUERY_USER_BY_USER_NAME_SQL % userName)
+        result_element_list = []
+        for (user_id, user_name, pass_word, phone_number, nick_name, sex, birthday, state) in cursor:
+            result_element = {"user_id": user_id, "user_name": user_name, "pass_word": pass_word,
+                              "phone_number": phone_number, "nick_name": nick_name, "sex": sex,
+                              "birthday": birthday, "state": state}
+            result_element_list.append(result_element)
+        print "xxx"
+        print result_element_list
+        print "yyy===>%d" % len(result_element_list)
+        return result_element_list
+
+    def query_to_user_by_user_name_pass_word(self, userName, passWord):
+        cursor.execute(UserDB.QUERY_USER_BY_USER_NAME_PASS_WORD_SQL % (userName, passWord))
+        result_element_list = []
+        for (user_id, user_name, pass_word, phone_number, nick_name, sex, birthday, state) in cursor:
+            result_element = {"user_id": user_id, "user_name": user_name, "pass_word": pass_word,
+                              "phone_number": phone_number, "nick_name": nick_name, "sex": sex,
+                              "birthday": birthday, "state": state}
+            result_element_list.append(result_element)
+        return result_element_list
+
+    def query_to_user_by_phone_number(self, phoneNumber):
+        cursor.execute(UserDB.QUERY_USER_BY_PHONE_NUMBER_SQL % phoneNumber)
+        result_element_list = []
+        for (user_id, user_name, pass_word, phone_number, nick_name, sex, birthday, state) in cursor:
+            result_element = {"user_id": user_id, "user_name": user_name, "pass_word": pass_word,
+                              "phone_number": phone_number, "nick_name": nick_name, "sex": sex,
+                              "birthday": birthday, "state": state}
+            result_element_list.append(result_element)
+        return result_element_list
+
+    def update_user_state(self, state, userID):
+        cursor.execute(UserDB.UPDATE_USER_STATE_SQL % (state, userID))
 
     def close_db(self):
         cursor.close()
