@@ -20,7 +20,7 @@ if __name__ == "__main__":
     city_name = form.getvalue("city").decode("utf-8")
     # l = form.getvalue("l").decode("utf-8")
 
-    # city_name = '南京'
+    # city_name = '南京市'
     # city_name = '北京'
     # city_name = '泗阳'
     print "city_name============test3--->%s" % city_name
@@ -105,20 +105,37 @@ if __name__ == "__main__":
                     result["desc"] = "数据解析异常"
                     driver.close()
                     driver.quit()
+                    fo = open("foo.txt", "a+")
+                    fo.write("3")
+                    fo.write("\n")
+                    fo.close()
 
             else:
                 result["code"] = -3
                 result["desc"] = "没有该城市数据"
+                fo = open("foo.txt", "a+")
+                fo.write("2")
+                fo.write("\n")
+                fo.close()
 
         except BaseException,e:
             print e
             result["code"] = -2
             result["desc"] = "获取城市信息失败"
+            fo = open("foo.txt", "a+")
+            fo.write("1")
+            fo.write("\n")
+            fo.close()
 
 
     test_time = time.asctime(time.localtime(time.time()))
     print test_time
     print time.time()
+
+    fo = open("foo.txt", "a+")
+    fo.write(json.dumps(result, encoding="utf-8", ensure_ascii=False))
+    fo.write("\n")
+    fo.close()
 
     print "Content-type:text/html;charset=UTF-8"
     print "Accept:application/json"

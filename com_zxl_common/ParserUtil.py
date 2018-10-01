@@ -175,3 +175,29 @@ class ParserUtil:
                 if len(str_item) > 0:
                     str = str + str_item + " "
         result["today_weather"]["simple_content"] = str.strip()
+
+    def parse_today_apk_package_info(self, package_content, result):
+
+        result["code"] = 0
+        result["desc"] = "success"
+
+        package_info_list = package_content.split("\n")
+        # print package_info_list
+        for package_item_info in package_info_list:
+            if "package:" in package_item_info:
+                for info in package_item_info.split(" "):
+                    if "name" in info:
+                        result["name"] = self.parse_equal_sign_value(info)
+                    if "versionCode" in info:
+                        result["versionCode"] = self.parse_equal_sign_value(info)
+                    if "versionName" in info:
+                        result["versionName"] = self.parse_equal_sign_value(info)
+
+    def parse_equal_sign_value(self, info):
+        # print info
+        pattern = re.compile(".*?='(.*?)'.*?", re.S)
+        result = re.findall(pattern, info)
+        if len(result) > 0:
+            return result[0]
+        else:
+            ""

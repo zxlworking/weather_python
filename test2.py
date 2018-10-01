@@ -24,6 +24,8 @@ if __name__ == "__main__":
     # print "city_name============test2--->%s" % city_name
     # l = "31.949393,118.808820"
     # l = "39.9775,116.308781"
+    # l = "33.48565,118.736808"
+    # l = "31.336792,120.7898"
     print "location============test2--->%s" % l
     fo = open("foo.txt", "a+")
     fo.write(l)
@@ -41,11 +43,11 @@ if __name__ == "__main__":
 
         try:
             city_info = mHttpUtil.query_city_by_location(l,"100")
-            print city_info
+            # print city_info
             city_info_json = json.loads(city_info)
             adm_name = city_info_json["addrList"][0]["admName"]
             result["address_info"] = adm_name
-            print adm_name
+            # print adm_name
             fo = open("foo.txt", "a+")
             fo.write(adm_name)
             fo.write("\n")
