@@ -57,7 +57,8 @@ if __name__ == "__main__":
             if len(query_user_result) == 0:
 
                 mUserBean = UserBean()
-                uuid = uuid.uuid5(uuid.NAMESPACE_DNS, 'weather')
+                # uuid = uuid.uuid5(uuid.NAMESPACE_DNS, 'weather')
+                uuid = uuid.uuid4()
                 uuid = str(uuid)
                 uuid = ''.join(uuid.split('-'))
                 print uuid
@@ -107,6 +108,37 @@ if __name__ == "__main__":
             print e
             result["code"] = -1
             result["desc"] = "注册异常"
+            mUserBean = UserBean()
+            mUserBean.create_empty_user_result(result)
+    elif user_operator == UserBean.USER_OPERATOR_LOGIN:
+
+        try:
+            user_info = form.getvalue("user_info").decode("utf-8")
+            user_info_json = json.loads(user_info)
+            user_name = user_info_json["user_name"]
+            pass_word = user_info_json["pass_word"]
+            query_user_result = mUserUtil.query_to_user_by_user_name_pass_word(user_name, pass_word)
+
+            if len(query_user_result) > 0:
+                result["code"] = 0
+                result["desc"] = "注册成功"
+                result["user_id"] = query_user_result[0]["user_id"]
+                result["user_name"] = query_user_result[0]["user_name"]
+                result["pass_word"] = query_user_result[0]["pass_word"]
+                result["phone_number"] = query_user_result[0]["phone_number"]
+                result["nick_name"] = query_user_result[0]["nick_name"]
+                result["sex"] = query_user_result[0]["sex"]
+                result["birthday"] = query_user_result[0]["birthday"]
+                result["state"] = query_user_result[0]["state"]
+            else:
+                result["code"] = -2
+                result["desc"] = "登录失败"
+                mUserBean = UserBean()
+                mUserBean.create_empty_user_result(result)
+        except BaseException, e:
+            print e
+            result["code"] = -1
+            result["desc"] = "登录异常"
             mUserBean = UserBean()
             mUserBean.create_empty_user_result(result)
 
