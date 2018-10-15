@@ -26,7 +26,7 @@ from com_zxl_send_message import SendTemplateSMS
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-result={}
+result = {}
 
 if __name__ == "__main__":
     # SendTemplateSMS.sendTemplateSMS("15850687360", "zxl_test", )

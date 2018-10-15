@@ -32,6 +32,20 @@ class HttpUtil:
                 print "e.reason:"
                 print e.reason
 
+    def get_qsbk_list_by_page(self, page):
+        # https://www.qiushibaike.com/article/120535436
+        url = "http://www.qiushibaike.com/hot/page/%s" % page
+        user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+        headers = {"User-Agent":user_agent}
+        return self.get_http_content(url, headers)
+
+    def get_qsbk_detail(self, author_id):
+        # https://www.qiushibaike.com/article/120535436
+        url = "http://www.qiushibaike.com/article/%s" % author_id
+        user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+        headers = {"User-Agent":user_agent}
+        return self.get_http_content(url, headers)
+
     def get_city_list(self):
         url = "http://mobile.weather.com.cn/js/citylist.xml"
         user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"

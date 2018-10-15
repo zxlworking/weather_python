@@ -3,6 +3,8 @@
 import mysql.connector
 
 from mysql.connector import errorcode
+
+from com_zxl_db.QsbkCollectDB import *
 from com_zxl_db.CityDB import *
 from com_zxl_db.UserDB import *
 from com_zxl_common.PrintUtil import *
@@ -72,6 +74,18 @@ class DBUtil():
                     exit(1)
             else:
                 self.mPrintUtil.show("OK")
+        for name, ddl in QsbkCollectDB.TABLES.iteritems():
+            try:
+                self.mPrintUtil.show("Creating table {}: ".format(name), )
+                cursor.execute(ddl)
+            except mysql.connector.Error as err:
+                if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
+                    self.mPrintUtil.show("already exists.")
+                else:
+                    self.mPrintUtil.show(err.msg)
+                    exit(1)
+            else:
+                self.mPrintUtil.show("OK")
 
     def insert_to_city(self, mCityBean):
         data_city = (mCityBean.mCityCode,
@@ -92,6 +106,22 @@ class DBUtil():
                      mUserBean.mBirthday,
                      mUserBean.mState)
         cursor.execute(UserDB.INSERT_USER_SQL, data_user)
+        cnx.commit()
+
+    def insert_to_qsbk_collect(self, mUserId, mQsbkParseElement):
+        data_qsbk_collect = (mUserId,
+                     mQsbkParseElement.author_id,
+                     mQsbkParseElement.author_head_img,
+                     mQsbkParseElement.author_name.encode("utf-8"),
+                     mQsbkParseElement.is_anonymity,
+                     mQsbkParseElement.author_sex,
+                     mQsbkParseElement.author_age,
+                     mQsbkParseElement.content.encode("utf-8"),
+                     mQsbkParseElement.has_thumb,
+                     mQsbkParseElement.thumb,
+                     mQsbkParseElement.vote_number,
+                     mQsbkParseElement.comment_number)
+        cursor.execute(QsbkCollectDB.INSERT_QSBK_COLLECT_SQL, data_qsbk_collect)
         cnx.commit()
 
     def query_to_city_by_city_name(self, cityName):
@@ -152,8 +182,44 @@ class DBUtil():
             result_element_list.append(result_element)
         return result_element_list
 
+    def query_qsbk_collect_by_user_id_author_id(self, user_id, author_id):
+        cursor.execute(QsbkCollectDB.QUERY_QSBK_COLLECT_BY_USER_ID_AUTHOR_ID_SQL % (user_id, author_id))
+        result_element_list = []
+        for (user_id, author_id, author_head_img, author_name, is_anonymity, author_sex, author_age, content, has_thumb, thumb, vote_number, comment_number) in cursor:
+            result_element = {"user_id": user_id, "author_id": author_id, "author_head_img": author_head_img,
+                              "author_name": author_name, "is_anonymity": is_anonymity, "author_sex": author_sex,
+                              "author_age": author_age, "content": content, "has_thumb": has_thumb,
+                              "thumb": thumb, "vote_number": vote_number, "comment_number": comment_number}
+            result_element_list.append(result_element)
+            break
+        return result_element_list
+
+    def query_qsbk_collect_by_user_id(self, page, page_count, user_id):
+        page_value = int(page)
+        page_count_value = int(page_count)
+        start_index = page_value * page_count_value
+        cursor.execute(QsbkCollectDB.QUERY_QSBK_COLLECT_BY_USER_ID_SQL % (user_id, start_index, page_count))
+        result_element_list = []
+        for (user_id, author_id, author_head_img, author_name, is_anonymity, author_sex, author_age, content, has_thumb, thumb, vote_number, comment_number) in cursor:
+            result_element = {"user_id": user_id, "author_id": author_id, "author_head_img": author_head_img,
+                              "author_name": author_name, "is_anonymity": is_anonymity, "author_sex": author_sex,
+                              "author_age": author_age, "content": content, "has_thumb": has_thumb,
+                              "thumb": thumb, "vote_number": vote_number, "comment_number": comment_number,
+                              "is_collect": True}
+            result_element_list.append(result_element)
+        return result_element_list
+
+    def query_qsbk_collect_total_count(self):
+        cursor.execute(QsbkCollectDB.QUERY_QSBK_COLLECT_TOTAL_COUNT_SQL)
+        for(total_count, ) in cursor:
+            return total_count
+
     def update_user_state(self, state, userID):
         cursor.execute(UserDB.UPDATE_USER_STATE_SQL % (state, userID))
+
+    def delete_qsbk_collect_by_user_id_author_id(self, user_id, author_id):
+        cursor.execute(QsbkCollectDB.DELETE_QSBK_COLLECT_BY_USER_ID_AUTHOR_ID_SQL % (user_id, author_id))
+        cnx.commit()
 
     def close_db(self):
         cursor.close()
