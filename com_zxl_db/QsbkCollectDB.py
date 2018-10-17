@@ -31,7 +31,7 @@ class QsbkCollectDB:
 
     QUERY_QSBK_COLLECT_BY_USER_ID_SQL = ("SELECT user_id, author_id, author_head_img, author_name, is_anonymity, author_sex, author_age, content, has_thumb, thumb, vote_number, comment_number "
                            " FROM " + QSBK_COLLECT_TABLE +
-                           " WHERE user_id = '%s' LIMIT %s,%s")
+                           " WHERE user_id = '%s' ORDER BY _id DESC LIMIT %s,%s")
 
     QUERY_QSBK_COLLECT_BY_USER_ID_AUTHOR_ID_SQL = ("SELECT user_id, author_id, author_head_img, author_name, is_anonymity, author_sex, author_age, content, has_thumb, thumb, vote_number, comment_number "
                            " FROM " + QSBK_COLLECT_TABLE +
