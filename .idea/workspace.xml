@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ac484891-3af0-4441-b830-209c00385105" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/foo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test3.py" beforeDir="false" afterPath="$PROJECT_DIR$/test3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,80 +14,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="foo.txt" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="foo.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/foo.txt">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="QsbkParseElement.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_data/QsbkParseElement.py">
+      <file leaf-file-name="test3.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cgi_qsbk.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cgi_qsbk.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1634">
-              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="62" />
-              <folding>
-                <element signature="e#37#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test7.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test7.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
-              <folding>
-                <element signature="e#47#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBUtil.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_common/DBUtil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3591">
-              <caret line="196" column="37" selection-start-line="196" selection-start-column="8" selection-end-line="196" selection-end-column="37" />
-              <folding>
-                <element signature="e#39#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QsbkCollectUtil.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_common/QsbkCollectUtil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QsbkCollectDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CityDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_db/CityDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="28" column="79" lean-forward="true" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="79" />
+            <state relative-caret-position="72">
+              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -103,8 +40,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>白天</find>
-      <find>2018</find>
       <find>h1</find>
       <find>big</find>
       <find>weather_css</find>
@@ -133,6 +68,8 @@
       <find>UserUtil</find>
       <find>QSBK_COLLECT_OPERATOR_COLLECT</find>
       <find>QUERY_CITY_TOTAL_COUNT_SQL</find>
+      <find>city&quot;</find>
+      <find>city_name</find>
     </findStrings>
     <dirStrings>
       <dir>C:\zxl\workspace\weather_python</dir>
@@ -166,7 +103,6 @@
         <option value="$PROJECT_DIR$/com_zxl_data/UserBean.py" />
         <option value="$PROJECT_DIR$/com_zxl_db/UserDB.py" />
         <option value="$PROJECT_DIR$/test2.py" />
-        <option value="$PROJECT_DIR$/test3.py" />
         <option value="$PROJECT_DIR$/test6.py" />
         <option value="$PROJECT_DIR$/cgi_qsbk_detail.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" />
@@ -180,6 +116,7 @@
         <option value="$PROJECT_DIR$/test7.py" />
         <option value="$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py" />
         <option value="$PROJECT_DIR$/foo.txt" />
+        <option value="$PROJECT_DIR$/test3.py" />
       </list>
     </option>
   </component>
@@ -195,6 +132,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,26 +140,10 @@
               <item name="weather_python" type="b2602c69:ProjectViewProjectNode" />
               <item name="weather_python" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="weather_python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weather_python" type="462c0819:PsiDirectoryNode" />
-              <item name="com_zxl_common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weather_python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weather_python" type="462c0819:PsiDirectoryNode" />
-              <item name="com_zxl_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weather_python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weather_python" type="462c0819:PsiDirectoryNode" />
-              <item name="com_zxl_db" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -590,23 +512,29 @@
       <option name="project" value="LOCAL" />
       <updated>1539599245857</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add zhongg guo tianqi wang today weather">
+      <created>1539763435747</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1539763435747</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1380" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1227608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1833085" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50052685" side_tool="true" weight="0.33482644" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.2743561" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.5060241" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.2743561" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32819074" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39865622" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -922,13 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="29" selection-start-line="29" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_db/UserDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -959,11 +880,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cgi_qsbk.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
+        <state relative-caret-position="406">
           <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="62" />
-          <folding>
-            <element signature="e#37#47#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com_zxl_common/DBUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="196" column="37" selection-start-line="196" selection-start-column="8" selection-end-line="196" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -974,23 +906,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_common/DBUtil.py">
+    <entry file="file://$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3591">
-          <caret line="196" column="37" selection-start-line="196" selection-start-column="8" selection-end-line="196" selection-end-column="37" />
-          <folding>
-            <element signature="e#39#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test7.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
-          <folding>
-            <element signature="e#47#57#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="539">
+          <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1001,15 +920,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/foo.txt">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

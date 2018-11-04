@@ -17,6 +17,9 @@ result = {}
 if __name__ == "__main__":
 
     form = cgi.FieldStorage()
+    addr = form.getvalue("addr")
+    if addr is not None:
+        addr = addr.decode("utf-8")
     city_name = form.getvalue("city").decode("utf-8")
     # l = form.getvalue("l").decode("utf-8")
 
@@ -28,6 +31,8 @@ if __name__ == "__main__":
     # l = "39.9775,116.308781"
     # print "city_name============test2--->%s" % l
     fo = open("foo.txt", "a+")
+    if addr is not None:
+        fo.write(addr+"--->")
     fo.write(city_name)
     fo.write("\n")
     fo.close()
@@ -43,7 +48,7 @@ if __name__ == "__main__":
 
         try:
 
-            result["address_info"] = city_name
+            result["address_info"] = addr
             result["city_name"] = city_name
 
             mCityUtil.init_city_list()
