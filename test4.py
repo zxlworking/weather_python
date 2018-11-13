@@ -19,7 +19,7 @@ if __name__ == "__main__":
     form = cgi.FieldStorage()
     page = form.getvalue("page").decode("utf-8")
 
-    # page = 3
+    # page = 1
     print "page============test4--->%s" % page
 
     mHttpUtil = HttpUtil()

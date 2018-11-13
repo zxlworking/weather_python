@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
+import json
+import pickle
 import urllib
 import time
 import urllib2
@@ -313,6 +315,7 @@ class HttpUtil:
         opt.set_headless()
         prefs = {"profile.managed_default_content_settings.images": 2}
         opt.add_experimental_option("prefs", prefs)
+        # opt.add_argument('Referer="http://mm.taobao.com"')
 
         # opt.add_argument(
         # 'authority="v.taobao.com"' + "\n"
@@ -335,6 +338,15 @@ class HttpUtil:
         # driver = EventFiringWebDriver(driver, taobao_anchor_load_listener)
 
         driver.get(url)
+
+        pickle.dump(driver.get_cookies(), open("cookies.pkl", "wb"))
+        cookies = pickle.load(open("cookies.pkl", "rb"))
+        if cookies is None or len(cookies) == 0:
+            pickle.dump(driver.get_cookies(), open("cookies.pkl", "wb"))
+
+        cookies = pickle.load(open("cookies.pkl", "rb"))
+        for cookie in cookies:
+            driver.add_cookie(cookie)
 
 
         # if page != "1":
