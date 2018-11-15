@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac484891-3af0-4441-b830-209c00385105" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/taobao_cookie.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test8.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookies.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/cookies.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/foo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test4.py" beforeDir="false" afterPath="$PROJECT_DIR$/test4.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,55 +16,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test4.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test4.py">
+      <file leaf-file-name="test2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+            <state relative-caret-position="646">
+              <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test3.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test3.py">
+      <file leaf-file-name="test8.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test8.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="32" selection-start-line="32" selection-end-line="37" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XPathParserUtil.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="183" column="55" selection-start-line="183" selection-start-column="49" selection-end-line="183" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpUtil.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="341" column="68" selection-start-line="341" selection-start-column="68" selection-end-line="341" selection-end-column="68" />
+            <state relative-caret-position="615">
+              <caret line="56" column="55" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
               <folding>
-                <element signature="e#37#48#0" expanded="true" />
+                <element signature="e#46#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cookies.pkl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cookies.pkl">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="taobao_cookie.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taobao_cookie.txt">
+      <file leaf-file-name="foo.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/foo.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="198" column="3" lean-forward="true" selection-start-line="198" selection-start-column="3" selection-end-line="198" selection-end-column="3" />
+            <state relative-caret-position="38">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -81,7 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>left</find>
       <find>isDisplay</find>
       <find>weather_icon_css</find>
       <find>fo</find>
@@ -111,6 +86,7 @@
       <find>[&quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;name\&quot;: \&quot;v\&quot;, \&quot;value\&quot;: \&quot;0\&quot;, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: false, \&quot;secure\&quot;: false}&quot;, &quot;{\&quot;domain\&quot;: \&quot;v.taobao.com\&quot;, \&quot;name\&quot;: \&quot;_tb_token_\&quot;, \&quot;value\&quot;: \&quot;undefined\&quot;, \&quot;path\&quot;: \&quot;/v/content\&quot;, \&quot;httpOnly\&quot;: false, \&quot;secure\&quot;: false}&quot;, &quot;{\&quot;domain\&quot;: \&quot;v.taobao.com\&quot;, \&quot;name\&quot;: \&quot;JSESSIONID\&quot;, \&quot;value\&quot;: \&quot;0ADB78A441E90EEB653D278F98E939B6\&quot;, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: true, \&quot;secure\&quot;: false}&quot;, &quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;name\&quot;: \&quot;cookie2\&quot;, \&quot;value\&quot;: \&quot;17a9cc97d282e43b348d2133e1c2d7c6\&quot;, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: true, \&quot;secure\&quot;: false}&quot;, &quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;secure\&quot;: false, \&quot;value\&quot;: \&quot;2CtxFMwReDoCAXYZskVExmSj\&quot;, \&quot;expiry\&quot;: 2172797911, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: false, \&quot;name\&quot;: \&quot;cna\&quot;}&quot;, &quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;name\&quot;: \&quot;_tb_token_\&quot;, \&quot;value\&quot;: \&quot;7ee15e1896633\&quot;, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: false, \&quot;secure\&quot;: false}&quot;, &quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;secure\&quot;: false, \&quot;value\&quot;: \&quot;64ac7fe33fa3c82f5c0074dde52fb457\&quot;, \&quot;expiry\&quot;: 1549853912.874905, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: false, \&quot;name\&quot;: \&quot;t\&quot;}&quot;, &quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;name\&quot;: \&quot;uc1\&quot;, \&quot;value\&quot;: \&quot;cookie14=UoTYNO8WN1cyrQ%3D%3D\&quot;, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: false, \&quot;secure\&quot;: false}&quot;, &quot;{\&quot;domain\&quot;: \&quot;.taobao.com\&quot;, \&quot;secure\&quot;: false, \&quot;value\&quot;: \&quot;BFJSD7JGXQeFDqH7ccxj4FG8qBiYclbsYv_GOxyrfoXwL_IpBPOmDVhNm8K2X86V\&quot;, \&quot;expiry\&quot;: 1557629911, \&quot;path\&quot;: \&quot;/\&quot;, \&quot;httpOnly\&quot;: false, \&quot;name\&quot;: \&quot;isg\&quot;}&quot;]</find>
       <find>app</find>
       <find>Expires</find>
+      <find>FieldStorage</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -144,7 +120,6 @@
         <option value="$PROJECT_DIR$/com_zxl_common/UserUtil.py" />
         <option value="$PROJECT_DIR$/com_zxl_data/UserBean.py" />
         <option value="$PROJECT_DIR$/com_zxl_db/UserDB.py" />
-        <option value="$PROJECT_DIR$/test2.py" />
         <option value="$PROJECT_DIR$/test6.py" />
         <option value="$PROJECT_DIR$/cgi_qsbk_detail.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/ParserUtil.py" />
@@ -156,12 +131,15 @@
         <option value="$PROJECT_DIR$/com_zxl_common/DBUtil.py" />
         <option value="$PROJECT_DIR$/test7.py" />
         <option value="$PROJECT_DIR$/com_zxl_db/QsbkCollectDB.py" />
-        <option value="$PROJECT_DIR$/foo.txt" />
         <option value="$PROJECT_DIR$/test3.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" />
         <option value="$PROJECT_DIR$/taobao_cookie.txt" />
-        <option value="$PROJECT_DIR$/test4.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" />
+        <option value="$PROJECT_DIR$/test4.py" />
+        <option value="$PROJECT_DIR$/crash/1542186676954.txt" />
+        <option value="$PROJECT_DIR$/test2.py" />
+        <option value="$PROJECT_DIR$/test8.py" />
+        <option value="$PROJECT_DIR$/foo.txt" />
       </list>
     </option>
   </component>
@@ -571,20 +549,25 @@
       <option name="project" value="LOCAL" />
       <updated>1541316435872</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add today weather addr">
+      <created>1542080094122</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1542080094122</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50052685" side_tool="true" weight="0.33482644" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.5060241" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922733" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.2743561" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.2743561" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32819074" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -595,6 +578,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -643,33 +627,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python27/Lib/urllib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/urlparse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/chrome/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="32" column="53" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/selenium/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://C:/Python27/Lib/json/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -782,13 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/cgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="584" column="8" selection-start-line="584" selection-start-column="8" selection-end-line="584" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cgi_qsbk_detail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -894,18 +844,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/foo.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/wx.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="32" selection-start-line="32" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cgi_wx_weather.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -928,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/remote/command.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -949,36 +882,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/taobao_cookie.txt" />
+    <entry file="file://$PROJECT_DIR$/test4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="32" selection-start-line="32" selection-end-line="37" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
+        <state relative-caret-position="539">
           <caret line="183" column="55" selection-start-line="183" selection-start-column="49" selection-end-line="183" selection-end-column="55" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taobao_cookie.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="198" column="3" lean-forward="true" selection-start-line="198" selection-start-column="3" selection-end-line="198" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cookies.pkl">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="341" column="68" selection-start-line="341" selection-start-column="68" selection-end-line="341" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cookies.pkl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3009">
+          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1542186676954.txt" />
+    <entry file="file://$PROJECT_DIR$/crash/1542186676954.txt" />
+    <entry file="file://$PROJECT_DIR$/crash/2018_11_15_09_22_27_ 99000913385745.txt" />
+    <entry file="file://C:/Python27/Lib/cgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4218">
+          <caret line="531" column="8" selection-start-line="531" selection-start-column="8" selection-end-line="531" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crash/2018_11_15_16_02_49_ 99000913385745.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/foo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test8.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="56" column="55" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
           <folding>
-            <element signature="e#37#48#0" expanded="true" />
+            <element signature="e#46#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
