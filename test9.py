@@ -17,26 +17,32 @@ result = {}
 if __name__ == "__main__":
     form = cgi.FieldStorage()
 
-    muscic_method = form.getvalue("muscic_method")
-    muscic_param_key = form.getvalue("muscic_param_key").decode("utf-8")
-    music_param_value = form.getvalue("music_param_value").decode("utf-8")
+    param = form.getvalue("param").decode("utf-8")
 
-    # muscic_method = 'baidu.ting.search.catalogSug'
-    # muscic_param_key = 'query'
-    # music_param_value = '一次就好'
+    # param = "method=baidu.ting.billboard.billList&type=1&size=20&offset=0"
 
-    print "music============test9--->(%s::%s::%s)" % (muscic_method, muscic_param_key, music_param_value)
+    print "music============test9--->%s" % param
+
+    fo = open("foo.txt", "a+")
+    fo.write("music============test9--->%s" % param)
+    fo.write("\n")
+    fo.close()
 
     mHttpUtil = HttpUtil()
 
-    info = mHttpUtil.get_music_info(muscic_method, muscic_param_key, music_param_value)
+    info = mHttpUtil.get_music_info(param)
 
     print info
 
     result["code"] = 0
     result["desc"] = "success"
-    result["music_method"] = muscic_method
+    result["param"] = param
     result["result"] = json.loads(info, "utf-8")
+
+    # fo = open("foo.txt", "a+")
+    # fo.write(json.dumps(result, encoding="utf-8", ensure_ascii=False))
+    # fo.write("\n")
+    # fo.close()
 
 
 

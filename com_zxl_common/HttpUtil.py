@@ -85,8 +85,8 @@ class HttpUtil:
         headers = {"User-Agent": user_agent}
         return self.get_http_content(url, headers)
 
-    def get_music_info(self, muscic_method, muscic_param_key, music_param_value):
-        url = "http://tingapi.ting.baidu.com/v1/restserver/ting?method=%s&%s=%s" % (muscic_method, muscic_param_key, music_param_value)
+    def get_music_info(self, param):
+        url = "http://tingapi.ting.baidu.com/v1/restserver/ting?%s" % param
         user_agent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
         headers = {"User-Agent": user_agent}
         return self.get_http_content(url, headers)
