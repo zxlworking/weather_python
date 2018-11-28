@@ -19,7 +19,9 @@ if __name__ == "__main__":
 
     param = form.getvalue("param").decode("utf-8")
 
-    # param = "method=baidu.ting.billboard.billList&type=1&size=20&offset=0"
+    # param = "method=baidu.ting.billboard.billList&type=1&size=1&offset=0"
+    # param = "method=baidu.ting.search.catalogSug&query=一次就好"
+    # param = "method=baidu.ting.song.play&songid=74107430"
 
     print "music============test9--->%s" % param
 
