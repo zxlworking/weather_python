@@ -4,7 +4,7 @@ import cgi
 import json
 import sys
 
-from com_zxl_common.HttpUtil import *
+from com_zxl_common.TaoBaoAnchorUtil import *
 from com_zxl_common.XPathParserUtil import *
 from com_zxl_listener.TaoBaoAnchorLoadListener import TaoBaoAnchorLoadListener
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # page = 1
     print "page============test4--->%s" % page
 
-    mHttpUtil = HttpUtil()
+    mTaoBaoAnchorUtil = TaoBaoAnchorUtil()
     mXPathParserUtil = XPathParserUtil()
 
     if page is None:
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         result["desc"] = "参数错误"
     else:
         try:
-            driver = mHttpUtil.get_taobao_anchor(page, TaoBaoAnchorLoadListener(result))
+            driver = mTaoBaoAnchorUtil.get_taobao_anchor(page, TaoBaoAnchorLoadListener(result))
             mXPathParserUtil.parse_taobao_anchor(driver, result)
 
             result["current_page"] = page

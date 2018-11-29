@@ -5,7 +5,7 @@ import cgi
 import os,sys,json
 import time
 from com_zxl_common.CityUtil import *
-from com_zxl_common.HttpUtil import *
+from com_zxl_common.TodayWeatherUtil import *
 from com_zxl_common.ParserUtil import *
 from com_zxl_common.XPathParserUtil import *
 
@@ -36,13 +36,13 @@ if __name__ == "__main__":
         result["code"] = -1
         result["desc"] = "参数错误"
     else:
-        mHttpUtil = HttpUtil()
+        mTodayWeatherUtil = TodayWeatherUtil()
         mCityUtil = CityUtil()
         mParserUtil = ParserUtil()
         mXPathParserUtil = XPathParserUtil()
 
         try:
-            city_info = mHttpUtil.query_city_by_location(l,"100")
+            city_info = mTodayWeatherUtil.query_city_by_location(l,"100")
             # print city_info
             city_info_json = json.loads(city_info)
             adm_name = city_info_json["addrList"][0]["admName"]
@@ -69,7 +69,7 @@ if __name__ == "__main__":
                 test_time = time.asctime(time.localtime(time.time()))
                 print test_time
                 print time.time()
-                driver = mHttpUtil.get_today_weather_from_zh_tian_qi(mCityResult[0]["city_code"])
+                driver = mTodayWeatherUtil.get_today_weather_from_zh_tian_qi(mCityResult[0]["city_code"])
 
                 test_time = time.asctime(time.localtime(time.time()))
                 print test_time
@@ -81,34 +81,34 @@ if __name__ == "__main__":
 
                     mParserUtil.parse_today_weather_simple_content(result)
 
-                    mHttpUtil.get_today_weather_temperature_icon_css(mParserUtil, driver, result)
+                    mTodayWeatherUtil.get_today_weather_temperature_icon_css(mParserUtil, driver, result)
 
                     if result["today_weather"]["is_limit"] == 1:
-                        mHttpUtil.get_today_limit_icon_css(mParserUtil, driver, result)
+                        mTodayWeatherUtil.get_today_limit_icon_css(mParserUtil, driver, result)
 
                     if result["today_weather"]["is_h"] == 1:
-                        mHttpUtil.get_today_humidity_icon_css(mParserUtil, driver, result)
+                        mTodayWeatherUtil.get_today_humidity_icon_css(mParserUtil, driver, result)
 
                     if result["today_weather"]["is_w"] == 1:
-                        mHttpUtil.get_today_wind_icon_css(mParserUtil, driver, result)
+                        mTodayWeatherUtil.get_today_wind_icon_css(mParserUtil, driver, result)
 
                     if result["today_weather"]["is_pol"] == 1:
-                        mHttpUtil.get_today_air_quality_icon_css(mParserUtil, driver, result)
+                        mTodayWeatherUtil.get_today_air_quality_icon_css(mParserUtil, driver, result)
 
                     mXPathParserUtil.parse_today_detail_weather_content(driver, result)
 
                     for toaday_detail_weather_element_result in result["today_weather_detail"]:
                         # print toaday_detail_weather_element_result
                         # print toaday_detail_weather_element_result["weather_icon_css"]
-                        mHttpUtil.get_toaday_detail_weather_icon_css(mParserUtil, driver,
+                        mTodayWeatherUtil.get_toaday_detail_weather_icon_css(mParserUtil, driver,
                                                                      toaday_detail_weather_element_result)
-                        mHttpUtil.get_toaday_detail_weather_wind_icon_css(mParserUtil, driver,
+                        mTodayWeatherUtil.get_toaday_detail_weather_wind_icon_css(mParserUtil, driver,
                                                                           toaday_detail_weather_element_result)
                         if toaday_detail_weather_element_result["is_sun_up"] == 1:
-                            mHttpUtil.get_toaday_detail_weather_sun_up_icon_css(mParserUtil, driver,
+                            mTodayWeatherUtil.get_toaday_detail_weather_sun_up_icon_css(mParserUtil, driver,
                                                                                 toaday_detail_weather_element_result)
                         else:
-                            mHttpUtil.get_toaday_detail_weather_sun_down_icon_css(mParserUtil, driver,
+                            mTodayWeatherUtil.get_toaday_detail_weather_sun_down_icon_css(mParserUtil, driver,
                                                                                   toaday_detail_weather_element_result)
                     driver.close()
                     driver.quit()

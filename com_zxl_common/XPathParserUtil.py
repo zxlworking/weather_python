@@ -191,3 +191,34 @@ class XPathParserUtil:
             result["desc"] = "获取信息异常"
             driver.close()
             driver.quit()
+
+    @staticmethod
+    def parse_wy_music_search_result(driver, result):
+
+        try:
+            # print driver.page_source.decode("utf-8")
+
+            # driver.switch_to.frame(reference)
+            # driver.switch_to.parent_frame()
+            # driver.switch_to.default_content()
+
+            iframe_element = driver.find_elements_by_xpath('//iframe[@name="contentFrame"]')
+            print iframe_element
+            iframe_id = iframe_element[0].get_attribute("id")
+            print "-----------------------------------"
+            print iframe_id
+            driver.switch_to.frame(iframe_id)
+
+            print driver.page_source.decode("utf-8")
+
+
+            result["code"] = 0
+            result["desc"] = "success"
+            result["wy_music_search_result"] = []
+
+        except BaseException, e:
+            print e
+            result["code"] = -3
+            result["desc"] = "获取信息异常"
+            driver.close()
+            driver.quit()
