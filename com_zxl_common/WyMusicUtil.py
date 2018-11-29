@@ -6,12 +6,11 @@ import json
 import random
 import urllib2
 
-import requests
-
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 from string import ascii_letters, digits
 
+from pip._vendor import requests
 from selenium import webdriver
 
 
@@ -33,6 +32,20 @@ class WyMusicUtil:
     }
 
     _charset = ascii_letters + digits
+
+    def get_http_content(self, url, data, headers):
+        try:
+            request = urllib2.Request(url, headers=headers)
+            request.add_data(data)
+            response = urllib2.urlopen(request)
+            return response.read().decode("utf-8")
+        except urllib2.URLError, e:
+            if hasattr(e, "code"):
+                print "e.code:"
+                print e.code
+            if hasattr(e, "reason"):
+                print "e.reason:"
+                print e.reason
 
     def rand_char(self, num=16):
         return ''.join(random.choice(self._charset) for _ in range(num))
@@ -72,7 +85,7 @@ class WyMusicUtil:
         }
         return data
 
-    def search_music_by_name(self, name):
+    def search_music(self, search_music_name, search_music_offset, search_music_page_count):
         # data-type="1"  歌手
         # data - type = "10" 专辑
         # data - type = "1014" 视频
@@ -85,16 +98,19 @@ class WyMusicUtil:
 
         query = {
             "id": "2060011116",
-            "s": name,
+            "s": search_music_name,
             "type": "1",
-            "offset": "0",
+            "offset": search_music_offset,
             "total": "false",
-            "limit": "2"
+            "limit": search_music_page_count
         }
-        data = self.encrypt(query)
+        query_data = self.encrypt(query)
 
-        r = requests.post(url, data=data, headers=self.headers)
+        r = requests.post(url, data=query_data, headers=self.headers)
         print(r.content)
+        return r.content
+        # content = self.get_http_content(url, query_data, self.headers)
+        # print(content)
 
     def get_music_lrc(self, id):
         url = 'https://music.163.com/weapi/song/lyric?csrf_token='
@@ -102,10 +118,13 @@ class WyMusicUtil:
         query = {
             "id": "440207429", "lv": -1, "tv": -1
         }
-        data = self.encrypt(query)
+        query_data = self.encrypt(query)
 
-        r = requests.post(url, data=data, headers=self.headers)
+        r = requests.post(url, data=query_data, headers=self.headers)
         print(r.content)
+        return r.content
+        # content = self.get_http_content(url, query_data, self.headers)
+        # print(content)
 
     def get_music_comment(self, id):
         url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_%s?csrf_token=' % id
@@ -116,10 +135,13 @@ class WyMusicUtil:
             "total": "true",
             "limit": "20",
         }
-        data = self.encrypt(query)
+        query_data = self.encrypt(query)
 
-        r = requests.post(url, data=data, headers=self.headers)
+        r = requests.post(url, data=query_data, headers=self.headers)
         print(r.content)
+        return r.content
+        # content = self.get_http_content(url, query_data, self.headers)
+        # print(content)
 
     def get_music_play_url(self, id):
         url = 'https://music.163.com/weapi/song/enhance/player/url?csrf_token='
@@ -129,7 +151,10 @@ class WyMusicUtil:
             "br": 128000,
 
         }
-        data = self.encrypt(query)
+        query_data = self.encrypt(query)
 
-        r = requests.post(url, data=data, headers=self.headers)
+        r = requests.post(url, data=query_data, headers=self.headers)
         print(r.content)
+        return r.content
+        # content = self.get_http_content(url, query_data, self.headers)
+        # print(content)
