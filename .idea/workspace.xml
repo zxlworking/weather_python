@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac484891-3af0-4441-b830-209c00385105" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/com_zxl_common/TaoBaoAnchorUtil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com_zxl_common/TodayWeatherUtil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com_zxl_common/WyMusicUtil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test10.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/HttpUtil.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookies.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/cookies.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com_zxl_common/WyMusicUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/WyMusicUtil.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/foo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.py" beforeDir="false" afterPath="$PROJECT_DIR$/test3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test4.py" beforeDir="false" afterPath="$PROJECT_DIR$/test4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test10.py" beforeDir="false" afterPath="$PROJECT_DIR$/test10.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,34 +16,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test10.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="foo.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/foo.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test10.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test10.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+            <state relative-caret-position="370">
+              <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
               <folding>
                 <element signature="e#47#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XPathParserUtil.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="195" column="8" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test9.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test9.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="8" />
-              <folding>
-                <element signature="e#46#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,10 +40,22 @@
       <file leaf-file-name="WyMusicUtil.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com_zxl_common/WyMusicUtil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="127" column="30" selection-start-line="127" selection-start-column="30" selection-end-line="127" selection-end-column="30" />
+            <state relative-caret-position="199">
+              <caret line="128" column="18" lean-forward="true" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="18" />
               <folding>
                 <element signature="e#37#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test9.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test9.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="50" selection-start-line="50" selection-end-line="55" selection-end-column="66" />
+              <folding>
+                <element signature="e#46#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +73,8 @@
       <file leaf-file-name="HttpUtil.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+            <state relative-caret-position="209">
+              <caret line="23" selection-start-line="23" selection-end-line="34" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -185,7 +177,6 @@
         <option value="$PROJECT_DIR$/crash/1542186676954.txt" />
         <option value="$PROJECT_DIR$/test8.py" />
         <option value="$PROJECT_DIR$/nph-test9.py" />
-        <option value="$PROJECT_DIR$/foo.txt" />
         <option value="$PROJECT_DIR$/test9.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/TodayWeatherUtil.py" />
         <option value="$PROJECT_DIR$/test2.py" />
@@ -195,6 +186,7 @@
         <option value="$PROJECT_DIR$/test4.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/WyMusicUtil.py" />
+        <option value="$PROJECT_DIR$/foo.txt" />
         <option value="$PROJECT_DIR$/test10.py" />
       </list>
     </option>
@@ -640,16 +632,31 @@
       <option name="project" value="LOCAL" />
       <updated>1543404575937</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="add wy music api">
+      <created>1543475637078</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1543475637078</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add wy music api">
+      <created>1543491299031</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1543491299031</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50052685" side_tool="true" weight="0.33482644" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.2743561" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.2743561" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.5060241" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -705,7 +712,8 @@
     <MESSAGE value="add today weather addr" />
     <MESSAGE value="add search music" />
     <MESSAGE value="add get music by type" />
-    <option name="LAST_COMMIT_MESSAGE" value="add get music by type" />
+    <MESSAGE value="add wy music api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add wy music api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -713,13 +721,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/com_zxl_listener/TaoBaoAnchorLoadListener.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../programe/apache-tomcat-8.5.31/webapps/cgi_server/WEB-INF/qsbk/cgi_qsbk.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -939,13 +940,6 @@
         <state relative-caret-position="-290" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/foo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="11" column="93" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162">
@@ -973,13 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="149" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_common/TaoBaoAnchorUtil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1001,13 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_common/XPathParserUtil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -1025,10 +1005,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com_zxl_common/HttpUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="23" selection-start-line="23" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/urllib2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="225" column="8" selection-start-line="225" selection-start-column="8" selection-end-line="225" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test9.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="389">
+          <caret line="50" selection-start-line="50" selection-end-line="55" selection-end-column="66" />
           <folding>
             <element signature="e#46#59#0" expanded="true" />
           </folding>
@@ -1037,8 +1038,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_common/WyMusicUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="127" column="30" selection-start-line="127" selection-start-column="30" selection-end-line="127" selection-end-column="30" />
+        <state relative-caret-position="199">
+          <caret line="128" column="18" lean-forward="true" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="18" />
           <folding>
             <element signature="e#37#50#0" expanded="true" />
           </folding>
@@ -1047,11 +1048,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test10.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        <state relative-caret-position="370">
+          <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
           <folding>
             <element signature="e#47#57#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/foo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
         </state>
       </provider>
     </entry>

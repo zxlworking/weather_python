@@ -13,6 +13,7 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 MUSIC_OPERATOR_SEARCH_MUSIC = "1"
+MUSIC_OPERATOR_OTHER = "-1"
 
 result = {}
 
@@ -22,7 +23,8 @@ if __name__ == "__main__":
 
     music_operator = form.getvalue("music_operator")
 
-    music_operator = "1"
+    # music_operator = "1"
+    # music_operator = "-1"
 
 
     # music_operator = 1::search_music_name = 一次就好::search_music_offset = 0::search_music_page_count = 20
@@ -56,9 +58,37 @@ if __name__ == "__main__":
         result["music_operator"] = music_operator
         result["result"] = json.loads(search_result, "utf-8")
     else:
-        mWyMusicUtil.get_music_lrc("440207429")
-        mWyMusicUtil.get_music_comment("440207429")
-        mWyMusicUtil.get_music_play_url("440207429")
+
+        id = form.getvalue("id")
+        comment_offset = form.getvalue("comment_offset")
+        comment_page_count = form.getvalue("comment_page_count")
+
+        # id = "440207429"
+        # comment_offset = "0"
+        # comment_page_count = "20"
+
+        print "music============test10===>%s===>%s===>%s" % (id, comment_offset, comment_page_count)
+
+        fo = open("foo.txt", "a+")
+        fo.write("music============test10--->%s===>%s===>%s===>%s" % (music_operator, id, comment_offset, comment_page_count))
+        fo.write("\n")
+        fo.close()
+
+        music_lrc = mWyMusicUtil.get_music_lrc(id)
+        music_comment = mWyMusicUtil.get_music_comment(id, comment_offset, comment_page_count)
+        music_play_info = mWyMusicUtil.get_music_play_info(id)
+
+        # fo = open("foo.txt", "a+")
+        # fo.write(music_lrc)
+        # fo.write("\n")
+        # fo.close()
+
+        result["code"] = 0
+        result["desc"] = "success"
+        result["music_operator"] = music_operator
+        result["music_lrc"] = json.loads(music_lrc, "utf-8")
+        result["music_comment"] = json.loads(music_comment, "utf-8")
+        result["music_play_info"] = json.loads(music_play_info, "utf-8")
 
 
     print "Content-type:text/html;charset=UTF-8"

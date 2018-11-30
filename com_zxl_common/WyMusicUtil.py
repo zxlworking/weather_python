@@ -116,7 +116,7 @@ class WyMusicUtil:
         url = 'https://music.163.com/weapi/song/lyric?csrf_token='
 
         query = {
-            "id": "440207429", "lv": -1, "tv": -1
+            "id": id, "lv": -1, "tv": -1
         }
         query_data = self.encrypt(query)
 
@@ -126,14 +126,14 @@ class WyMusicUtil:
         # content = self.get_http_content(url, query_data, self.headers)
         # print(content)
 
-    def get_music_comment(self, id):
+    def get_music_comment(self, id, comment_offset, comment_page_count):
         url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_%s?csrf_token=' % id
 
         query = {
             "rid": "R_SO_4_%s" % id,
-            "offset": "0",
+            "offset": comment_offset,
             "total": "true",
-            "limit": "20",
+            "limit": comment_page_count,
         }
         query_data = self.encrypt(query)
 
@@ -143,7 +143,7 @@ class WyMusicUtil:
         # content = self.get_http_content(url, query_data, self.headers)
         # print(content)
 
-    def get_music_play_url(self, id):
+    def get_music_play_info(self, id):
         url = 'https://music.163.com/weapi/song/enhance/player/url?csrf_token='
 
         query = {
